@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id         Int      @id @default(autoincrement())
+  userNumber String   @unique @map("user_number")
+  firstName  String   @map("first_name")
+  lastName   String   @map("last_name")
+  roleId     Int      @map("role_id") //ROLE Teacher,Student
+  email      String   @unique
+  password   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  role        role          @relation(fields: [roleId], references: [id])
+  reservation reservation[]
+}
+
+model role {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      user[]
+}
+
+model reservation {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  equipmentId Int      @map("equipment_id")
+  statusId    Int      @map("status_id")
+  startDate   DateTime @map("start_date")
+  endDate     DateTime @map("end_date")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user      user      @relation(fields: [userId], references: [id])
+  equipment equipment @relation(fields: [equipmentId], references: [id])
+  status    status    @relation(fields: [statusId], references: [id])
+
+  @@index([userId], name: "userId")
+  @@index([equipmentId], name: "equipmentId")
+  @@index([statusId], name: "statusId")
+}
+
+model equipment {
+  id              Int      @id @default(autoincrement())
+  name            String
+  description     String
+  equipmentTypeId Int      @map("equipment_type_id")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  EquipmentType equipmentType @relation(fields: [equipmentTypeId], references: [id])
+  reservation   reservation[]
+
+  @@index([equipmentTypeId], name: "equipmentTypeId")
+  
+}
+
+//camera, microphone...
+model equipmentType {
+  id        Int         @id @default(autoincrement())
+  name      String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  Equipment equipment[]
+
+  @@map("equipment_type")
+}
+
+// rejected,approved
+model status {
+  id          Int           @id @default(autoincrement())
+  name        String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  reservation reservation[]
+}
