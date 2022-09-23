@@ -3,6 +3,17 @@ const router = express.Router();
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
+router.get('/insert', async (req: any, res: any) => {
+    const equipmentType = await prisma.role.create({
+        data: {
+            name: "Student",
+        },
+    }
+    );
+    res.json(equipmentType);
+});
+
+
 router.get('/getAll', async (req:any, res:any) => {
     const roles = await prisma.role.findMany();
     res.json(roles);

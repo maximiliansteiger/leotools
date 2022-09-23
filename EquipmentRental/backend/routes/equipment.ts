@@ -3,6 +3,8 @@ const router = express.Router();
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
+
+
 router.get('/getAll', async (req:any, res:any) => {
     const equipments = await prisma.equipment.findMany();
     res.json(equipments);

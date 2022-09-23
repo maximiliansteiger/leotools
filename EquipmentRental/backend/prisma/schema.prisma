@@ -11,26 +11,22 @@ datasource db {
 }
 
 model user {
-  id         Int      @id @default(autoincrement())
-  userNumber String   @unique @map("user_number")
-  firstName  String   @map("first_name")
-  lastName   String   @map("last_name")
-  roleId     Int      @map("role_id") //ROLE Teacher,Student
-  email      String   @unique
-  password   String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id        Int    @id @default(autoincrement())
+  firstName String @map("first_name")
+  lastName  String @map("last_name")
+  roleId    Int    @map("role_id") 
+  email     String @unique
+  password  String
 
   role        role          @relation(fields: [roleId], references: [id])
   reservation reservation[]
 }
 
-model role { // teacher, Student
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  User      user[]
+model role {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  User user[]
 }
 
 model reservation {
@@ -40,8 +36,6 @@ model reservation {
   statusId    Int      @map("status_id")
   startDate   DateTime @map("start_date")
   endDate     DateTime @map("end_date")
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 
   user      user      @relation(fields: [userId], references: [id])
   equipment equipment @relation(fields: [equipmentId], references: [id])
@@ -53,34 +47,29 @@ model reservation {
 }
 
 model equipment {
-  id              Int      @id @default(autoincrement())
+  id              Int    @id @default(autoincrement())
   name            String
   description     String
-  equipmentTypeId Int      @map("equipment_type_id")
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  equipmentTypeId Int    @map("equipment_type_id")
 
   EquipmentType equipmentType @relation(fields: [equipmentTypeId], references: [id])
   reservation   reservation[]
 
   @@index([equipmentTypeId], name: "equipmentTypeId")
-  
 }
 
-model equipmentType { // camera, microphone, etc
-  id        Int         @id @default(autoincrement())
-  name      String
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
+model equipmentType {
+  id   Int    @id @default(autoincrement())
+  name String
+
   Equipment equipment[]
 
   @@map("equipment_type")
 }
 
-model status { // pending, approved, rejected
-  id          Int           @id @default(autoincrement())
-  name        String
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
+model status {
+  id   Int    @id @default(autoincrement())
+  name String
+
   reservation reservation[]
 }

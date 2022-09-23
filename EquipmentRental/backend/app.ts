@@ -13,10 +13,6 @@ import user from './routes/user';
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (req:any, res:any) => {
-    res.send('Hello World!')
-})
-
 //middleware binding
 app.use('/equipments', equipment);
 app.use('/equipmentTypes', equipmentType);
