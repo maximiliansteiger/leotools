@@ -129,4 +129,46 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
+//mail
+require('dotenv').config();
+const envFile = process.env;
+
+router.get('/code', async (req, res) => {
+    sendMail(req.body.email, "1234");
+    res.send("1234")
+
+});
+
+async function sendMail(userMail: string, code: string) {
+    const nodemailer = require('nodemailer');
+    const transporter = nodemailer.createTransport({
+        name: 'leoTools',
+        host: 'mail.schoolutilities.net',
+        port: 465,
+        secure: true,
+        auth: {
+            user: envFile.EMAIL_USER,
+            pass: envFile.EMAIL_PASSWORD
+        },
+    });
+    const mailOptions = {
+        from: envFile.EMAIL_USER,
+        to: userMail,
+        subject: "Verifikationscode",
+        text: "ihr code lautet: " + code,
+
+    };
+
+    await transporter.sendMail(mailOptions)
+        .then((info: any) => {
+            console.log(info);
+        }).catch((err: any) => {
+            console.log(err);
+        });
+
+
+}
+
+
 export default router;
