@@ -51,4 +51,4 @@ router.delete('/delete/:id', async (req:any, res:any) => {
     res.json(equipment);
 });
 
-module.exports = router;
+export default router;

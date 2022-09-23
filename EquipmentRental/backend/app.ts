@@ -1,27 +1,21 @@
-//make nodejs express server
-const express = require('express');
+import express from 'express';
 const app = express();
 const port = 3000;
-import { PrismaClient } from '@prisma/client'
 
 //middleware
-const equipment = require('./routes/equipment');
-const equipmentType = require('./routes/equipmentType');
-const reservation = require('./routes/reservation');
-const role = require('./routes/role');
-const status = require('./routes/status');
-const user = require('./routes/user');
-
+import equipment from './routes/equipment';
+import equipmentType from './routes/equipmentType';
+import reservation from './routes/reservation';
+import role from './routes/role';
+import status from './routes/status';
+import user from './routes/user';
 
 app.use(express.json());
-
-
-// const prisma = new PrismaClient()
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req:any, res:any) => {
     res.send('Hello World!')
 })
-
 
 //middleware binding
 app.use('/equipments', equipment);
@@ -31,13 +25,6 @@ app.use('/roles', role);
 app.use('/states', status);
 app.use('/users', user);
 
-
-
-
-
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
 });
-
-
-

@@ -67,7 +67,6 @@ model equipment {
   
 }
 
-//camera, microphone...
 model equipmentType { // camera, microphone, etc
   id        Int         @id @default(autoincrement())
   name      String
