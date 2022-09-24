@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Equipment } from '../models/equipment';
+import { EquipmentTypes } from '../models/equipmentType';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-rental',
@@ -8,12 +11,21 @@ import { Component, OnInit } from '@angular/core';
 export class RentalComponent implements OnInit {
 
 
-  // rentals:Rental;
+  equipments!:Equipment[];
+  equipmentTypes!:EquipmentTypes[]
+  staticEquipment!: Equipment[];
 
-  constructor() { }
+  constructor(private http: HttpService) { }
 
   ngOnInit(): void {
+    this.http.getAllEquipments().subscribe((data) => {
+      this.staticEquipment = data;
+      this.equipments = data;
+      this.equipments.sort((a, b) => a.EquipmentType.name.localeCompare(b.EquipmentType.name));
+      console.log(this.equipments);
+    });
   }
+
 
 
 }
