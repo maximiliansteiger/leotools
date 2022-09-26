@@ -10,6 +10,7 @@ router.get('/getAll', async (req:any, res:any) => {
     res.json(equipments);
 });
 
+
 router.get('/get/:id', async (req:any, res:any) => {
     const equipment = await prisma.equipment.findUnique({
         where: {

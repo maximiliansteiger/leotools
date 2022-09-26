@@ -13,10 +13,6 @@ export class HttpService {
   baseUrl: String = 'https://localhost:3000';
 
 
-
-  //?get/post/put/delete
-
-
   // ---- USER ----
 
 
