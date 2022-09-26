@@ -4,47 +4,64 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 router.get('/getAll', async (req:any, res:any) => {
-    const equipmentTypes = await prisma.equipmentType.findMany();
-    res.json(equipmentTypes);
+    const reservations = await prisma.reservation.findMany({
+        include: {
+            equipment: true,
+            user: true
+        },
+    });
+    res.json(reservations);
 });
 
 router.get('/get/:id', async (req:any, res:any) => {
-    const equipmentType = await prisma.equipmentType.findUnique({
+    const reservation = await prisma.reservation.findUnique({
         where: {
             id: Number(req.params.id),
         },
+        include: {
+            equipment: true,
+            user: true
+        },
     });
-    res.json(equipmentType);
+    res.json(reservation);
 });
 
 router.post('/create/', async (req:any, res:any) => {
-    const equipmentType = await prisma.equipmentType.create({
+    const reservation = await prisma.reservation.create({
         data: {
-            name: req.body.name
+            userId: req.body.userId,
+            equipmentId: req.body.equipmentId,
+            statusId: req.body.statusId,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate
         },
     });
-    res.json(equipmentType);
+    res.json(reservation);
 });
 
 router.put('/update/:id', async (req:any, res:any) => {
-    const equipmentType = await prisma.equipmentType.update({
+    const reservation = await prisma.reservation.update({
         where: {
             id: Number(req.params.id),
         },
         data: {
-            name: req.body.name
+            userId: req.body.userId,
+            equipmentId: req.body.equipmentId,
+            statusId: req.body.statusId,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate
         },
     });
-    res.json(equipmentType);
+    res.json(reservation);
 });
 
 router.delete('/delete/:id', async (req:any, res:any) => {
-    const equipmentType = await prisma.equipmentType.delete({
+    const reservation = await prisma.reservation.delete({
         where: {
             id: Number(req.params.id),
         },
     });
-    res.json(equipmentType);
+    res.json(reservation);
 });
 
 export default router;

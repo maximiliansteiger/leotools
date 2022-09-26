@@ -4,8 +4,29 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 
+let insertData = {
+    name: 'Zoom',
+    description: 'test',
+    EquipmentType: {
+        connect: {
+            id: 1
+        }
+    }
+}
 
-router.get('/getAll', async (req:any, res:any) => {
+
+// insert
+
+router.get('/insert', async (req, res) => {
+    const result = await prisma.equipment.create({
+        data: insertData
+    });
+    res.json(result);
+});
+
+
+
+router.get('/getAll', async (req: any, res: any) => {
     const equipments = await prisma.equipment.findMany({
         include: {
             EquipmentType: true
@@ -15,7 +36,7 @@ router.get('/getAll', async (req:any, res:any) => {
 });
 
 
-router.get('/get/:id', async (req:any, res:any) => {
+router.get('/get/:id', async (req: any, res: any) => {
     const equipment = await prisma.equipment.findUnique({
         where: {
             id: Number(req.params.id),
@@ -24,7 +45,7 @@ router.get('/get/:id', async (req:any, res:any) => {
     res.json(equipment);
 });
 
-router.post('/create/', async (req:any, res:any) => {
+router.post('/create', async (req: any, res: any) => {
     const equipment = await prisma.equipment.create({
         data: {
             name: req.body.name,
@@ -35,7 +56,7 @@ router.post('/create/', async (req:any, res:any) => {
     res.json(equipment);
 });
 
-router.put('/update/:id', async (req:any, res:any) => {
+router.put('/update/:id', async (req: any, res: any) => {
     const equipment = await prisma.equipment.update({
         where: {
             id: Number(req.params.id),
@@ -49,7 +70,7 @@ router.put('/update/:id', async (req:any, res:any) => {
     res.json(equipment);
 });
 
-router.delete('/delete/:id', async (req:any, res:any) => {
+router.delete('/delete/:id', async (req: any, res: any) => {
     const equipment = await prisma.equipment.delete({
         where: {
             id: Number(req.params.id),

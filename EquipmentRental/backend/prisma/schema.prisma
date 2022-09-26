@@ -59,12 +59,22 @@ model equipment {
 }
 
 model equipmentType {
-  id   Int    @id @default(autoincrement())
-  name String
+  id          Int    @id @default(autoincrement())
+  name        String
+  category_id Int    @map("category_id")
 
   Equipment equipment[]
 
+  EquipmentCategory equipmentCategory @relation(fields: [category_id], references: [id])
+
   @@map("equipment_type")
+}
+
+model equipmentCategory {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  EquipmentType equipmentType[]
 }
 
 model status {

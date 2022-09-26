@@ -3,17 +3,6 @@ const router = express.Router();
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-
-// router.get('/insert', async (req:any, res:any) => {
-//     const status = await prisma.status.create({
-//         data: {
-//             name: "rejected",
-//         },
-//     }
-//     );
-//     res.json(status);
-// });
-
 router.get('/getAll', async (req:any, res:any) => {
     const statuses = await prisma.status.findMany();
     res.json(statuses);

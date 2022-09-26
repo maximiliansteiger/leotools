@@ -4,52 +4,48 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 router.get('/getAll', async (req:any, res:any) => {
-    const equipmentTypes = await prisma.equipmentType.findMany();
-    res.json(equipmentTypes);
+    const equipmentCategories = await prisma.equipmentCategory.findMany();
+    res.json(equipmentCategories);
 });
 
 router.get('/get/:id', async (req:any, res:any) => {
-    const equipmentType = await prisma.equipmentType.findUnique({
+    const equipmentCategory = await prisma.equipmentCategory.findUnique({
         where: {
             id: Number(req.params.id),
         },
     });
-    res.json(equipmentType);
+    res.json(equipmentCategory);
 });
 
 router.post('/create', async (req:any, res:any) => {
-    const equipmentType = await prisma.equipmentType.create({
+    const equipmentCategory = await prisma.equipmentCategory.create({
         data: {
             name: req.body.name,
-            category_id: req.body.category_id,
         },
     });
-    res.json(equipmentType);
+    res.json(equipmentCategory);
 });
 
 router.put('/update/:id', async (req:any, res:any) => {
-    const equipmentType = await prisma.equipmentType.update({
+    const equipmentCategory = await prisma.equipmentCategory.update({
         where: {
             id: Number(req.params.id),
         },
         data: {
             name: req.body.name,
-            category_id: req.body.category_id,
         },
     });
-    res.json(equipmentType);
+    res.json(equipmentCategory);
 });
 
 router.delete('/delete/:id', async (req:any, res:any) => {
-    const equipmentType = await prisma.equipmentType.delete({
+    const equipmentCategory = await prisma.equipmentCategory.delete({
         where: {
             id: Number(req.params.id),
         },
     });
-    res.json(equipmentType);
+    res.json(equipmentCategory);
 });
-
-
 
 
 
