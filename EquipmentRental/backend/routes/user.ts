@@ -54,7 +54,7 @@ let robin = {
 // insert
 router.get('/insert', async (req: any, res: any) => {
     const equipmentType = await prisma.user.create({
-        data: robin
+        data: maxi
     }
     );
     res.json(equipmentType);

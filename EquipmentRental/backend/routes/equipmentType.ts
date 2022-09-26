@@ -3,6 +3,25 @@ const router = express.Router();
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
+//insert
+router.get('/insert', async (req: any, res: any) => {
+    const equipmentType = await prisma.equipmentType.create({
+        data: {
+            name: "Zoom",
+            EquipmentCategory: {
+                connect: {
+                    id: 5
+                }
+            }
+        },
+    }
+    );
+    res.json(equipmentType);
+});
+
+
+
+
 router.get('/getAll', async (req:any, res:any) => {
     const equipmentTypes = await prisma.equipmentType.findMany();
     res.json(equipmentTypes);

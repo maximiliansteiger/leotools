@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 router.get('/insert', async (req: any, res: any) => {
     const equipmentType = await prisma.role.create({
         data: {
-            name: "Student",
+            name: "Teacher",
         },
     }
     );

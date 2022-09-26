@@ -3,6 +3,20 @@ const router = express.Router();
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
+
+//insert
+router.get('/insert', async (req: any, res: any) => {
+    const equipmentCategory = await prisma.equipmentCategory.create({
+        data: {
+            name: "Mikrofon",
+        },
+    }
+    );
+    res.json(equipmentCategory);
+});
+
+
+
 router.get('/getAll', async (req:any, res:any) => {
     const equipmentCategories = await prisma.equipmentCategory.findMany();
     res.json(equipmentCategories);

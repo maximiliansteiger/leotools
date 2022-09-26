@@ -31,7 +31,7 @@ export class RentalComponent implements OnInit {
   getImagebyEquipment(equipment: Equipment) {
     let imageURL = "../../assets/img/";
     switch (equipment.EquipmentType.name) {
-      case "Mikrofon":
+      case "Zoom":
         imageURL += "Mikrofon.png"
         break;
       case "Fotokamera":

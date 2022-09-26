@@ -3,12 +3,24 @@ const router = express.Router();
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-router.get('/getAll', async (req:any, res:any) => {
+//insert
+router.get('/insert', async (req: any, res: any) => {
+    const status = await prisma.status.create({
+        data: {
+            name: "Pending",
+        },
+    }
+    );
+    res.json(status);
+});
+
+
+router.get('/getAll', async (req: any, res: any) => {
     const statuses = await prisma.status.findMany();
     res.json(statuses);
 });
 
-router.get('/get/:id', async (req:any, res:any) => {
+router.get('/get/:id', async (req: any, res: any) => {
     const status = await prisma.status.findUnique({
         where: {
             id: Number(req.params.id),
@@ -17,7 +29,7 @@ router.get('/get/:id', async (req:any, res:any) => {
     res.json(status);
 });
 
-router.post('/create/', async (req:any, res:any) => {
+router.post('/create/', async (req: any, res: any) => {
     const status = await prisma.status.create({
         data: {
             name: req.body.name,
@@ -26,7 +38,7 @@ router.post('/create/', async (req:any, res:any) => {
     res.json(status);
 });
 
-router.put('/update/:id', async (req:any, res:any) => {
+router.put('/update/:id', async (req: any, res: any) => {
     const status = await prisma.status.update({
         where: {
             id: Number(req.params.id),
@@ -38,7 +50,7 @@ router.put('/update/:id', async (req:any, res:any) => {
     res.json(status);
 });
 
-router.delete('/delete/:id', async (req:any, res:any) => {
+router.delete('/delete/:id', async (req: any, res: any) => {
     const status = await prisma.status.delete({
         where: {
             id: Number(req.params.id),
