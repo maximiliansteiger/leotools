@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
-</head>
+  </head>
 
-
-  
-<body>
+  <body>
     <nav class="navbar navbar-default">
-    <h1 class="jumbotron text-center">Rental</h1>
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" >Rental</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-          </ul>
-          
+      <h1 class="jumbotron text-center">Rental</h1>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">Rental</a>
         </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="">Home</a></li>
+          <li><a href="#">Page 1</a></li>
+        </ul>
+      </div>
     </nav>
-<div class="rentals">
-    <h2>Rentals</h2>
-    <div class="rental-list">
-        <!-- <div class="rental" *ngFor="let rental of rentals"> -->
-        <!-- <h3>{{rental.title}}</h3>
-        <p>{{rental.image}}</p>
-        <p>{{rental.type}}</p>
-        <p>{{rental.available}}</p>
-        </div>-->
-    </div> 
-</div>
 
-</body>
+
+
+
+    <div class="rentals">
+      <h2>Rentals</h2>
+      <div class="equipments">
+      <div class="equipment" *ngFor="let eq of equipments">
+        <img class="eqImg"src="../../assets/img/chimp.png">
+          <!-- <h3>{{eq.EquipmentType.name}}</h3> -->
+          <h3 class="eqName">{{eq.name}}</h3>
+      </div>
+    </div>
+    </div>
+  </body>
 </html>

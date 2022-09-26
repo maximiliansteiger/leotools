@@ -6,7 +6,11 @@ const prisma = new PrismaClient();
 
 
 router.get('/getAll', async (req:any, res:any) => {
-    const equipments = await prisma.equipment.findMany();
+    const equipments = await prisma.equipment.findMany({
+        include: {
+            EquipmentType: true
+        },
+    });
     res.json(equipments);
 });
 

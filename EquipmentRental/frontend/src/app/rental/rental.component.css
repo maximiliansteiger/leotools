@@ -1,0 +1,36 @@
+.equipment{
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 100%;
+    text-align: center;
+    margin-left:5%;
+   
+}
+.equipments{
+    display:grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 20px;
+    margin: 20px;
+    margin-left:5%;
+
+}
+.eqImg{
+    width: 70%;
+    /* height: 1vh; */
+    object-fit: cover;
+    display: flex;
+    margin: 0 auto;
+}
+.eqName{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.equipment:hover{
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: 0.3s ease-out;
+    transform: scale(1.05);
+}

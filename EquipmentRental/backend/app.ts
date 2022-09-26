@@ -10,8 +10,10 @@ import role from './routes/role';
 import status from './routes/status';
 import user from './routes/user';
 
+const cors = require('cors');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors())
 
 //middleware binding
 app.use('/equipments', equipment);
@@ -24,3 +26,4 @@ app.use('/users', user);
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
 });
+
