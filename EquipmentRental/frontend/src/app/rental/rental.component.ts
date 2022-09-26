@@ -11,8 +11,8 @@ import { HttpService } from '../services/http.service';
 export class RentalComponent implements OnInit {
 
 
-  equipments!:Equipment[];
-  equipmentTypes!:EquipmentTypes[]
+  equipments!: Equipment[];
+  equipmentTypes!: EquipmentTypes[]
   staticEquipment!: Equipment[];
 
   constructor(private http: HttpService) { }
@@ -26,6 +26,30 @@ export class RentalComponent implements OnInit {
     });
   }
 
+
+
+  getImagebyEquipment(equipment: Equipment) {
+    let imageURL = "../../assets/img/";
+    switch (equipment.EquipmentType.name) {
+      case "Mikrofon":
+        imageURL += "Mikrofon.png"
+        break;
+      case "Fotokamera":
+        imageURL += "Fotokamera.png"
+        break;
+      case "Videokamera":
+        imageURL += "Videokamera.png"
+        break;
+      case "Stativ":
+        imageURL += "Stativ.png"
+        break;
+      default:
+        imageURL += "err.png"
+        break;
+    }
+
+    return imageURL;
+  }
 
 
 }

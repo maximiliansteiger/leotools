@@ -9,8 +9,8 @@ import reservation from './routes/reservation';
 import role from './routes/role';
 import status from './routes/status';
 import user from './routes/user';
-
 const cors = require('cors');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors())

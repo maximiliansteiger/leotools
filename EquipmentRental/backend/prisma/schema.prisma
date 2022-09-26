@@ -14,7 +14,7 @@ model user {
   id        Int    @id @default(autoincrement())
   firstName String @map("first_name")
   lastName  String @map("last_name")
-  roleId    Int    @map("role_id") 
+  roleId    Int    @map("role_id")
   email     String @unique
   password  String
 
