@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RentalComponent } from './rental/rental.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

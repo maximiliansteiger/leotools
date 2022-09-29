@@ -1,1 +1,25 @@
-<p>register works!</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<form [formGroup]="registerForm" class="formWrapper">
+  <label>Vorname</label>
+  <input formControlName="firstName" type="text">
+  <label>Nachname</label>
+  <input formControlName="lastName" type="text">
+  <label>E-Mail</label>
+  <input formControlName="email" type="text">
+  <label>Passwort</label>
+  <input formControlName="password" type="password">
+  <label>Passwort bestätigen</label>
+  <input formControlName="confirmPassword" type="password">
+</form>
+</body>
+</html>
