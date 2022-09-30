@@ -4,26 +4,6 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 
-let insertData = {
-    name: 'Zoom',
-    EquipmentType: {
-        connect: {
-            id: 1
-        }
-    }
-}
-
-
-// insert
-router.get('/insert', async (req, res) => {
-    const result = await prisma.equipment.create({
-        data: insertData
-    });
-    res.json(result);
-});
-
-
-
 router.get('/getAll', async (req: any, res: any) => {
     const equipments = await prisma.equipment.findMany({
         include: {
@@ -48,6 +28,7 @@ router.post('/create', async (req: any, res: any) => {
         data: {
             name: req.body.name,
             equipmentTypeId: req.body.equipmentTypeId,
+            status: req.body.status
         },
     });
     res.json(equipment);
@@ -61,6 +42,7 @@ router.put('/update/:id', async (req: any, res: any) => {
         data: {
             name: req.body.name,
             equipmentTypeId: req.body.equipmentTypeId,
+            status: req.body.status
         },
     });
     res.json(equipment);

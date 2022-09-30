@@ -5,4 +5,5 @@ export class Equipment {
     public name!: string;
     public equipmentTypeId!: number;
     public EquipmentType!: EquipmentType;
+    public status!: string;
 }

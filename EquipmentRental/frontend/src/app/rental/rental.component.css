@@ -22,7 +22,7 @@
     object-fit: cover;
     display: flex;
     margin: 0 auto;
-    outline: 5px solid #ccc;
+    /* outline: 5px solid #ccc; */
 }
 .eqName{
     font-size: 1.5rem;
@@ -34,4 +34,11 @@
     cursor: pointer;
     transition: 0.3s ease-out;
     transform: scale(1.05);
+}
+
+/* make gray if all taken */
+.allTaken{
+    background-color: #ccc;
+    color: #fff;
+    cursor: not-allowed;
 }

@@ -22,21 +22,25 @@ export class RentalComponent implements OnInit {
     this.http.getAllEquipments().subscribe((data) => {
       this.staticEquipment = data;
       this.equipments = data;
+      
       this.equipmentTypes = new Map();
       this.equipments.forEach((equipment) => {
+        if (equipment.status != "available") return;
         if (this.equipmentTypes.has(equipment.name)) {
           this.equipmentTypes.set(equipment.name, this.equipmentTypes.get(equipment.name) + 1);
         } else {
           this.equipmentTypes.set(equipment.name, 1);
         }
       });
-      console.log(this.equipmentTypes);
-      
-      this.equipmentTypeNames = Array.from(this.equipmentTypes.keys());
-      // console.log(this.equipmentTypeNames);
+
+
+      //get amount of equipment types (availabilities)
+      this.equipmentTypeNames = new Set();
+      this.equipments.forEach((equipment) => {
+        this.equipmentTypeNames.add(equipment.name);
+      });
 
       this.equipments.sort((a, b) => a.EquipmentType.name.localeCompare(b.EquipmentType.name));
-      // console.log(this.equipments);
     });
   }
 
@@ -44,8 +48,6 @@ export class RentalComponent implements OnInit {
     let imageURL = "../../assets/img/";
     // console.log(et);
     // console.log("hallo");
-    
-    
     switch (et) {
       case "Zoom H2n":
         imageURL += "zoom.png"
@@ -56,12 +58,15 @@ export class RentalComponent implements OnInit {
       case "Sony 6100":
         imageURL += "Sony_6100.jpg"
         break;
+      case "hama star 75":
+        imageURL += "hama_star_75.png"
+        break;
+
       default:
         imageURL += "err.png"
         break;
     }
     return imageURL;
   }
-
 
 }

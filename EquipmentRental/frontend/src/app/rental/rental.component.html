@@ -28,9 +28,9 @@
   <div class="rentals">
     <h2>Rentals</h2>
     <div class="equipments">
-      <div class="equipment" *ngFor="let eq of equipmentTypeNames">
+      <div class="equipment" [ngClass]="{'allTaken':!equipmentTypes.get(eq)}" *ngFor="let eq of equipmentTypeNames">
         <img class="eqImg" [src]="getImageByEquipment(eq)">
-        <h1>{{equipmentTypes.get(eq)}}</h1>
+        <h5>verfügbar: {{equipmentTypes.get(eq) ? equipmentTypes.get(eq) :0}}</h5>
         <!-- <h3>{{eq.EquipmentType.name}}</h3> -->
         <h3 class="eqName">{{eq}}</h3>
       </div>
