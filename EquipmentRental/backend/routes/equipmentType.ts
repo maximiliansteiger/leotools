@@ -7,7 +7,8 @@ const prisma = new PrismaClient();
 router.get('/insert', async (req: any, res: any) => {
     const equipmentType = await prisma.equipmentType.create({
         data: {
-            name: "Zoom",
+            name: "Canon Eos 850D",
+            description: "Schwarz mit 18-55mm Objektiv und 55-250mm Objektiv",
             EquipmentCategory: {
                 connect: {
                     id: 5

@@ -6,7 +6,6 @@ const prisma = new PrismaClient();
 
 let insertData = {
     name: 'Zoom',
-    description: 'test',
     EquipmentType: {
         connect: {
             id: 1
@@ -16,7 +15,6 @@ let insertData = {
 
 
 // insert
-
 router.get('/insert', async (req, res) => {
     const result = await prisma.equipment.create({
         data: insertData
@@ -49,7 +47,6 @@ router.post('/create', async (req: any, res: any) => {
     const equipment = await prisma.equipment.create({
         data: {
             name: req.body.name,
-            description: req.body.description,
             equipmentTypeId: req.body.equipmentTypeId,
         },
     });
@@ -63,7 +60,6 @@ router.put('/update/:id', async (req: any, res: any) => {
         },
         data: {
             name: req.body.name,
-            description: req.body.description,
             equipmentTypeId: req.body.equipmentTypeId,
         },
     });

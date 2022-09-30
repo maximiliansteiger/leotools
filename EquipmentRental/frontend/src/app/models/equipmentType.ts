@@ -1,6 +1,7 @@
 export class EquipmentType {
     public id!: string;
     public name!: string;
+    public description!: string;
 }
 export enum EquipmentTypes{
     "Videokamera"=2,

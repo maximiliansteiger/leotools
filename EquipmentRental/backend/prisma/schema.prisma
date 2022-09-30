@@ -49,7 +49,6 @@ model reservation {
 model equipment {
   id              Int    @id @default(autoincrement())
   name            String
-  description     String
   equipmentTypeId Int    @map("equipment_type_id")
 
   EquipmentType equipmentType @relation(fields: [equipmentTypeId], references: [id])
@@ -61,6 +60,7 @@ model equipment {
 model equipmentType {
   id          Int    @id @default(autoincrement())
   name        String
+  description String
   category_id Int    @map("category_id")
 
   Equipment equipment[]

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipment } from '../models/equipment';
-import { EquipmentTypes } from '../models/equipmentType';
+import { EquipmentType, EquipmentTypes } from '../models/equipmentType';
 import { HttpService } from '../services/http.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class RentalComponent implements OnInit {
 
 
   equipments!: Equipment[];
-  equipmentTypes!: EquipmentTypes[]
+  equipmentTypes!: any;
+  equipmentTypeNames!: any;
   staticEquipment!: Equipment[];
 
   constructor(private http: HttpService) { }
@@ -21,33 +22,42 @@ export class RentalComponent implements OnInit {
     this.http.getAllEquipments().subscribe((data) => {
       this.staticEquipment = data;
       this.equipments = data;
+      this.equipmentTypes = new Map();
+      this.equipments.forEach((equipment) => {
+        if (this.equipmentTypes.has(equipment.name)) {
+          this.equipmentTypes.set(equipment.name, this.equipmentTypes.get(equipment.name) + 1);
+        } else {
+          this.equipmentTypes.set(equipment.name, 1);
+        }
+      });
+      this.equipmentTypeNames = Array.from(this.equipmentTypes.keys());
+      console.log(this.equipmentTypeNames);
+
       this.equipments.sort((a, b) => a.EquipmentType.name.localeCompare(b.EquipmentType.name));
-      console.log(this.equipments);
+      // console.log(this.equipments);
     });
   }
 
-
-
-  getImagebyEquipment(equipment: Equipment) {
+  getImageByEquipment(et: String) {
     let imageURL = "../../assets/img/";
-    switch (equipment.EquipmentType.name) {
+    console.log(et);
+    console.log("hallo");
+    
+    
+    switch (et) {
       case "Zoom":
-        imageURL += "Mikrofon.png"
+        imageURL += "zoom.png"
         break;
-      case "Fotokamera":
-        imageURL += "Fotokamera.png"
+      case "Canon Eos 850D":
+        imageURL += "Canon_Eos_850D.png"
         break;
-      case "Videokamera":
-        imageURL += "Videokamera.png"
-        break;
-      case "Stativ":
-        imageURL += "Stativ.png"
+      case "Sony 6100":
+        imageURL += "Sony_6100.jpg"
         break;
       default:
         imageURL += "err.png"
         break;
     }
-
     return imageURL;
   }
 
