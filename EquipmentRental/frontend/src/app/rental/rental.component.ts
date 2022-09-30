@@ -22,15 +22,20 @@ export class RentalComponent implements OnInit {
     this.http.getAllEquipments().subscribe((data) => {
       this.staticEquipment = data;
       this.equipments = data;
-      
+
       this.equipmentTypes = new Map();
       this.equipments.forEach((equipment) => {
         if (equipment.status != "available") return;
-        if (this.equipmentTypes.has(equipment.name)) {
-          this.equipmentTypes.set(equipment.name, this.equipmentTypes.get(equipment.name) + 1);
-        } else {
-          this.equipmentTypes.set(equipment.name, 1);
-        }
+        this.equipmentTypes.set(
+          equipment.name,
+          (this.equipmentTypes.has(equipment.name)) ?
+            this.equipmentTypes.get(equipment.name) + 1 : 1
+        );
+        // if (this.equipmentTypes.has(equipment.name)) {
+        //   this.equipmentTypes.set(equipment.name, this.equipmentTypes.get(equipment.name) + 1);
+        // } else {
+        //   this.equipmentTypes.set(equipment.name, 1);
+        // }
       });
 
 
@@ -56,7 +61,7 @@ export class RentalComponent implements OnInit {
         imageURL += "Canon_Eos_850D.png"
         break;
       case "Sony 6100":
-        imageURL += "Sony_6100.jpg"
+        imageURL += "Sony_6100.png"
         break;
       case "hama star 75":
         imageURL += "hama_star_75.png"
