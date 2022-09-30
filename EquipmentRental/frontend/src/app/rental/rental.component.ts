@@ -30,8 +30,10 @@ export class RentalComponent implements OnInit {
           this.equipmentTypes.set(equipment.name, 1);
         }
       });
+      console.log(this.equipmentTypes);
+      
       this.equipmentTypeNames = Array.from(this.equipmentTypes.keys());
-      console.log(this.equipmentTypeNames);
+      // console.log(this.equipmentTypeNames);
 
       this.equipments.sort((a, b) => a.EquipmentType.name.localeCompare(b.EquipmentType.name));
       // console.log(this.equipments);
@@ -40,12 +42,12 @@ export class RentalComponent implements OnInit {
 
   getImageByEquipment(et: String) {
     let imageURL = "../../assets/img/";
-    console.log(et);
-    console.log("hallo");
+    // console.log(et);
+    // console.log("hallo");
     
     
     switch (et) {
-      case "Zoom":
+      case "Zoom H2n":
         imageURL += "zoom.png"
         break;
       case "Canon Eos 850D":

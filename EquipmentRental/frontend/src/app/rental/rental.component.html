@@ -30,9 +30,9 @@
     <div class="equipments">
       <div class="equipment" *ngFor="let eq of equipmentTypeNames">
         <img class="eqImg" [src]="getImageByEquipment(eq)">
-        <!-- <h1>{{equipmentTypes[equipmentTypeNames]}}</h1> -->
+        <h1>{{equipmentTypes.get(eq)}}</h1>
         <!-- <h3>{{eq.EquipmentType.name}}</h3> -->
-        <!-- <h3 class="eqName">{{eq.name}}</h3> -->
+        <h3 class="eqName">{{eq}}</h3>
       </div>
     </div>
   </div>
