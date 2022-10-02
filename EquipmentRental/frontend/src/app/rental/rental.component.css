@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .equipment{
     margin: 20px;
     padding: 20px;
@@ -6,7 +10,7 @@
     min-width: 100%;
     text-align: center;
     margin-left:5%;
-   
+
 }
 .equipments{
     display:grid;
