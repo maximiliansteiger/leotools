@@ -1,14 +1,14 @@
-export class EquipmentType {
-    public id!: string;
-    public name!: string;
-    public description!: string;
+export type EquipmentType = {
+    id: string,
+    name: string,
+    description: string,
 }
-export enum EquipmentTypes{
-    "Videokamera"=2,
-    "Fotokamera"=3,
-    "Mikrofon"=4,
-    "Drohne"=5,
-    "Stativ"=6,
-    "Zubehör"=7,
-    "Sonstiges"=8
+export enum EquipmentTypes {
+    "Videokamera" = 2,
+    "Fotokamera" = 3,
+    "Mikrofon" = 4,
+    "Drohne" = 5,
+    "Stativ" = 6,
+    "Zubehör" = 7,
+    "Sonstiges" = 8
 }

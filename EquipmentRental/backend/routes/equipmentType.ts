@@ -42,6 +42,7 @@ router.post('/create', async (req:any, res:any) => {
         data: {
             name: req.body.name,
             category_id: req.body.category_id,
+            description: req.body.description,
         },
     });
     res.json(equipmentType);

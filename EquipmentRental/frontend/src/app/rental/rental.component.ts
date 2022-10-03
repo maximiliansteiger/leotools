@@ -22,37 +22,47 @@ export class RentalComponent implements OnInit {
     this.http.getAllEquipments().subscribe((data) => {
       this.staticEquipment = data;
       this.equipments = data;
+
       this.equipmentTypes = new Map();
       this.equipments.forEach((equipment) => {
-        if (this.equipmentTypes.has(equipment.name)) {
-          this.equipmentTypes.set(equipment.name, this.equipmentTypes.get(equipment.name) + 1);
-        } else {
-          this.equipmentTypes.set(equipment.name, 1);
-        }
+        if (equipment.status != "available") return;
+        this.equipmentTypes.set(
+          equipment.name,
+          (this.equipmentTypes.has(equipment.name)) ?
+            this.equipmentTypes.get(equipment.name) + 1 : 1
+        );
+        // if (this.equipmentTypes.has(equipment.name)) {
+        //   this.equipmentTypes.set(equipment.name, this.equipmentTypes.get(equipment.name) + 1);
+        // } else {
+        //   this.equipmentTypes.set(equipment.name, 1);
+        // }
       });
-      this.equipmentTypeNames = Array.from(this.equipmentTypes.keys());
-      console.log(this.equipmentTypeNames);
+
+
+      //get amount of equipment types (availabilities)
+      this.equipmentTypeNames = new Set();
+      this.equipments.forEach((equipment) => {
+        this.equipmentTypeNames.add(equipment.name);
+      });
 
       this.equipments.sort((a, b) => a.EquipmentType.name.localeCompare(b.EquipmentType.name));
-      // console.log(this.equipments);
     });
   }
 
   getImageByEquipment(et: String) {
     let imageURL = "../../assets/img/";
-    console.log(et);
-    console.log("hallo");
-    
-    
     switch (et) {
-      case "Zoom":
+      case "Zoom H2n":
         imageURL += "zoom.png"
         break;
       case "Canon Eos 850D":
         imageURL += "Canon_Eos_850D.png"
         break;
       case "Sony 6100":
-        imageURL += "Sony_6100.jpg"
+        imageURL += "Sony_6100.png"
+        break;
+      case "hama star 75":
+        imageURL += "hama_star_75.png"
         break;
       default:
         imageURL += "err.png"
@@ -60,6 +70,5 @@ export class RentalComponent implements OnInit {
     }
     return imageURL;
   }
-
 
 }

@@ -47,12 +47,12 @@ model reservation {
 }
 
 model equipment {
-  id              Int    @id @default(autoincrement())
+  id              Int           @id @default(autoincrement())
   name            String
-  equipmentTypeId Int    @map("equipment_type_id")
-
-  EquipmentType equipmentType @relation(fields: [equipmentTypeId], references: [id])
-  reservation   reservation[]
+  equipmentTypeId Int           @map("equipment_type_id")
+  status          String        @map("status") @default("Available") 
+  EquipmentType   equipmentType @relation(fields: [equipmentTypeId], references: [id])
+  reservation     reservation[]
 
   @@index([equipmentTypeId], name: "equipmentTypeId")
 }

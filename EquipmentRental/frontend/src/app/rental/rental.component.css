@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .equipment{
     margin: 20px;
     padding: 20px;
@@ -6,22 +10,23 @@
     min-width: 100%;
     text-align: center;
     margin-left:5%;
-   
+
 }
 .equipments{
     display:grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5%;
     margin: 20px;
     margin-left:5%;
 
 }
 .eqImg{
-    width: 70%;
-    /* height: 1vh; */
+    width: 100px;
+    height: auto;
     object-fit: cover;
     display: flex;
     margin: 0 auto;
+    /* outline: 5px solid #ccc; */
 }
 .eqName{
     font-size: 1.5rem;
@@ -34,3 +39,14 @@
     transition: 0.3s ease-out;
     transform: scale(1.05);
 }
+
+/* make gray if all taken */
+.allTaken{
+    background-color: #ccc;
+    color: #fff;
+}
+.allTaken img{
+    filter: grayscale(100%);
+}
+
+

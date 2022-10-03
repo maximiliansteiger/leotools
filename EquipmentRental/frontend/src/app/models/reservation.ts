@@ -1,8 +1,8 @@
-export class reservation{
-    public id!: number;
-    public userId!: number;
-    public equipmentId!: number;
-    public statusId!: number;
-    public startDate!: Date;
-    public endDate!: Date;
+export type reservation = {
+    id: number,
+    userId: number,
+    equipmentId: number,
+    statusId: number,
+    startDate: Date,
+    endDate: Date,
 } 
