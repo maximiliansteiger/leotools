@@ -8,6 +8,7 @@ import { RentalComponent } from './rental/rental.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { DetailComponent } from './detail/detail.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppComponent,
     RentalComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

@@ -43,6 +43,9 @@ export class HttpService {
   public getEquipmentById(id: number): Observable<any> {
     return this.http.get(this.baseUrl + "/equipments/get/" + id);
   }
+  public getEquipmentByName(name: any): Observable<any> {
+    return this.http.get(this.baseUrl + "/equipments/getByName/" + name);
+  }
   public createEquipment(equipment: any): Observable<any> {
     return this.http.post(this.baseUrl + "/equipments/create", equipment);
   }
@@ -52,6 +55,7 @@ export class HttpService {
   public deleteEquipment(equipment: any): Observable<any> {
     return this.http.delete(this.baseUrl + "/equipments/delete/" + equipment.id);
   }
+  
 
   // ---- EQUIPMENT TYPE ----
 

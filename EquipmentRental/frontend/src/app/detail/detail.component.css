@@ -1,0 +1,40 @@
+
+.eqImg{
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+    display: flex;
+    margin: 0 auto;
+    /* outline: 5px solid #ccc; */
+    position: relative;
+    top:25vh;
+    right: 20vw;
+    padding-right: 4vw;
+    border-right: 2px solid #b1b6cd;
+
+}
+
+.info{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 4px;
+    width:25%;
+    text-align: left;
+    margin-left:5%;
+    position: relative;
+    right: -40vw;
+    border: 1px solid #ccc;
+    top: -20vh;
+}
+.content{
+    position: relative;
+    bottom:10vh;
+}
+
+a {
+    transition: 0.3s;
+    cursor:pointer;
+  }
+  a:hover {
+    color: #242424;
+  }

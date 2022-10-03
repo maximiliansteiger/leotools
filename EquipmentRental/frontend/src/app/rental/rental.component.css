@@ -1,52 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-.equipment{
+
+.equipment {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 100%;
+  text-align: center;
+  margin-left: 5%;
+}
+.equipments {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5%;
+  margin: 20px;
+  margin-left: 2.5%;
+  margin-right: 4.5%;
+}
+.eqImg {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  display: flex;
+  margin: 0 auto;
+  /* outline: 5px solid #ccc; */
+}
+.eqName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 10px 0;
+}
+.equipment:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  transform: scale(1.05);
+}
+
+/* make gray if all taken */
+.allTaken {
+  opacity: 0.5;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.allTaken img {
+  filter: grayscale(100%);
+}
+.available {
+  color: rgb(238, 93, 93);
+}
+
+a {
+  transition: 0.3s;
+  cursor:pointer;
+}
+a:hover {
+  color: #242424;
+}
+.filter{
     margin: 20px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    min-width: 100%;
+    max-width: 90%;
     text-align: center;
-    margin-left:5%;
-
+    margin-left: 5%;
+    margin-right: 5%;
 }
-.equipments{
-    display:grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5%;
-    margin: 20px;
-    margin-left:5%;
-
-}
-.eqImg{
-    width: 100px;
-    height: auto;
-    object-fit: cover;
-    display: flex;
-    margin: 0 auto;
-    /* outline: 5px solid #ccc; */
-}
-.eqName{
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 10px 0;
-}
-.equipment:hover{
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-    cursor: pointer;
-    transition: 0.3s ease-out;
-    transform: scale(1.05);
-}
-
-/* make gray if all taken */
-.allTaken{
-    background-color: #ccc;
-    color: #fff;
-}
-.allTaken img{
-    filter: grayscale(100%);
-}
-
-
