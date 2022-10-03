@@ -44,5 +44,9 @@
 .allTaken{
     background-color: #ccc;
     color: #fff;
-    cursor: not-allowed;
 }
+.allTaken img{
+    filter: grayscale(100%);
+}
+
+

@@ -1,9 +1,9 @@
 import { EquipmentType } from "./equipmentType";
 
-export class Equipment {
-    public id!: number;
-    public name!: string;
-    public equipmentTypeId!: number;
-    public EquipmentType!: EquipmentType;
-    public status!: string;
+export type Equipment = {
+    id: number,
+    name: string,
+    equipmentTypeId: number,
+    EquipmentType: EquipmentType,
+    status: string,
 }

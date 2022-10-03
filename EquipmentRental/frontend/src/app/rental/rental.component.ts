@@ -51,8 +51,6 @@ export class RentalComponent implements OnInit {
 
   getImageByEquipment(et: String) {
     let imageURL = "../../assets/img/";
-    // console.log(et);
-    // console.log("hallo");
     switch (et) {
       case "Zoom H2n":
         imageURL += "zoom.png"
@@ -66,7 +64,6 @@ export class RentalComponent implements OnInit {
       case "hama star 75":
         imageURL += "hama_star_75.png"
         break;
-
       default:
         imageURL += "err.png"
         break;
