@@ -8,7 +8,6 @@ html {
 
 body {
     background-color: rgb(255, 255, 255);
-    color: #2F3136;
 }
 
 .container {
@@ -43,6 +42,7 @@ body {
 h1 {
     font-size: 6em;
     font-family: 'Poppins', sans-serif;
+    color: #91aeca; 
 }
 
 .footerGrid {
@@ -51,7 +51,7 @@ h1 {
 
 .contentLink {
     text-decoration: none;
-    color: #2F3136;
+    color: #4b515c;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     transition: .5s;
@@ -59,6 +59,16 @@ h1 {
 
 .contentLink:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.475);
+    color: #91aeca;
+}
+
+.contentLink svg{
+    color: #4b515c;
+    transition: .5s;
+}
+
+.contentLink:hover svg{
+    color: #91aeca;
 }
 
 .tool {

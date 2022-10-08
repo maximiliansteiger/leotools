@@ -10,6 +10,46 @@ body {
     display: block;
 }
 
+.backButton{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    background-color: #91aeca;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    transition: .5s;
+}
+
+.backButton:hover{
+    cursor: pointer;
+    background-color: #7c96ad;
+}
+
+a{
+    text-decoration: none;
+    color:#2F3136;
+}
+
+a .toolDescription{
+    transition: .5s;
+}
+
+a .toolImage{
+    transition: .5s;
+}
+
+a:hover .toolDescription{
+    color: #5d7081;
+}
+
+a:hover .toolImage{
+    color: #5d7081;
+}
+
 .headline {
     display: flex;
     justify-content: center;
@@ -19,6 +59,7 @@ body {
 h1 {
     font-size: 6em;
     font-family: 'Poppins', sans-serif;
+    color: #91aeca;
 }
 
 .description {
@@ -76,6 +117,7 @@ hr {
     font-size: 2em;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
+    color: #91aeca;
 }
 
 .toolDescription {
