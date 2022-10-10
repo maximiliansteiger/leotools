@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="wrapper ">
-<div class=" "> 
+<div class=" ">
   <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"  [formGroup]="registerForm">
     <div class="mb-4">
       <label class="block text-darkgray text-sm font-bold mb-2" >
@@ -45,7 +45,7 @@
       <p class="text-red text-xs italic">Please choose a password.</p>
     </div>
     <div class="flex items-center justify-between">
-      <button class="bg-midblue hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" onsubmit="register()">
+      <button (click)="register()" class="bg-midblue hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" >
         Register
       </button>
       <!--<a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
@@ -55,18 +55,6 @@
   </form>
 </div>
 </div>
-<!--
-<form [formGroup]="registerForm" >
-  <label>Vorname</label>
-  <input formControlName="firstName" type="text">
-  <label>Nachname</label>
-  <input formControlName="lastName" type="text">
-  <label>E-Mail</label>
-  <input formControlName="email" type="text">
-  <label>Passwort</label>
-  <input formControlName="password" type="password">
-  <label>Passwort bestätigen</label>
-  <input formControlName="confirmPassword" type="password">
-</form>-->
+
 </body>
 </html>

@@ -1,10 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 .wrapper{
+  margin-top: 3%;
     display: flex;
     align-items: center;
   justify-content: center;
-  
+
 }
+
