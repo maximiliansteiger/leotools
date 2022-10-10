@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { RentalComponent } from './rental/rental.component';
 import {RegisterComponent} from "./register/register.component";
 import { DetailComponent } from './detail/detail.component';
-import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   {
@@ -18,10 +17,6 @@ const routes: Routes = [
   {
     path: 'detail',
     component: DetailComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
   },
   {
     path: '**',
