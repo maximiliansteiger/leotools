@@ -5,23 +5,33 @@ import { RentalComponent } from './rental/rental.component';
 import {RegisterComponent} from "./register/register.component";
 import { DetailComponent } from './detail/detail.component';
 import {LoginComponent} from "./login/login.component";
+import {HomeComponent} from "./home/home.component";
+import { ReservationComponent } from './reservation/reservation.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: RentalComponent,
+    component: HomeComponent
+  },
+  {
+    path: 'equipment',
+    component: RentalComponent
   },
   {
     path: 'register',
-    component: RegisterComponent,
+    component: RegisterComponent
   },
   {
     path: 'detail',
-    component: DetailComponent,
+    component: DetailComponent
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
+  },
+  {
+    path: 'reservation',
+    component: ReservationComponent
   },
   {
     path: '**',
