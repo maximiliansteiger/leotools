@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id        Int    @id @default(autoincrement())
+  firstName String @map("first_name")
+  lastName  String @map("last_name")
+  roleId    Int    @map("role_id")
+  email     String @unique
+  password  String
+
+  role        role          @relation(fields: [roleId], references: [id])
+  reservation reservation[]
+}
+
+model role {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  User user[]
+}
+
+model reservation {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  equipmentId Int      @map("equipment_id")
+  statusId    Int      @map("status_id")
+  startDate   DateTime @map("start_date")
+  endDate     DateTime @map("end_date")
+
+  user      user      @relation(fields: [userId], references: [id])
+  equipment equipment @relation(fields: [equipmentId], references: [id])
+  status    status    @relation(fields: [statusId], references: [id])
+
+  @@index([userId], name: "userId")
+  @@index([equipmentId], name: "equipmentId")
+  @@index([statusId], name: "statusId")
+}
+
+model equipment {
+  id              Int           @id @default(autoincrement())
+  name            String
+  equipmentTypeId Int           @map("equipment_type_id")
+  status          String        @map("status") @default("Available") 
+  EquipmentType   equipmentType @relation(fields: [equipmentTypeId], references: [id])
+  reservation     reservation[]
+
+  @@index([equipmentTypeId], name: "equipmentTypeId")
+}
+
+model equipmentType {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  category_id Int    @map("category_id")
+
+  Equipment equipment[]
+
+  EquipmentCategory equipmentCategory @relation(fields: [category_id], references: [id])
+
+  @@map("equipment_type")
+}
+
+model equipmentCategory {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  EquipmentType equipmentType[]
+}
+
+model status {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  reservation reservation[]
+}
