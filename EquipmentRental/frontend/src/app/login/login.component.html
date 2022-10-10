@@ -1,1 +1,41 @@
-<p>login works!</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="/dist/output.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+<div class="wrapper ">
+  <div class=" ">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"  [formGroup]="loginForm">
+      <div class="mb-4">
+        <label class="block text-darkgray text-sm font-bold mb-2" >
+          E-Mail
+        </label>
+        <input formControlName="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray leading-tight focus:outline-none focus:shadow-outline"  type="text" placeholder="Mustermann">
+      </div>
+      <div class="mb-6">
+        <label class="block text-darkgray text-sm font-bold mb-2" >
+          Passwort
+        </label>
+        <input formControlName="password" class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-gray mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" placeholder="******************">
+        <p class="text-red text-xs italic">Please choose a password.</p>
+      </div>
+      <div class="flex items-center justify-between">
+        <button (click)="login()" class="bg-midblue hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" >
+          Login
+        </button>
+        <!--<a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+          Forgot Password?
+        </a>-->
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
