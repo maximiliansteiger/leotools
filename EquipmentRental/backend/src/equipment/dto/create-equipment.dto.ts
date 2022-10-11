@@ -3,9 +3,9 @@ import { IsString } from "class-validator";
 
 export class CreateEquipmentDto {
 
-
     @ApiProperty()
-    id: number;
+    @IsString()
+    set: string;
 
     @ApiProperty()
     @IsString()
@@ -16,5 +16,14 @@ export class CreateEquipmentDto {
 
     @ApiProperty()
     status: string;
+
+    @ApiProperty()
+    serialNumber: string;
+
+    @ApiProperty()
+    notes: string;
+
+    @ApiProperty()
+    anlagenummer: string;
 
 }

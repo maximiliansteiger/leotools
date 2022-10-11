@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
@@ -55,6 +55,18 @@ export class HttpService {
   public deleteEquipment(equipment: any): Observable<any> {
     return this.http.delete(this.baseUrl + "/equipments/delete/" + equipment.id);
   }
+  public uploadEquipments(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    const req = new HttpRequest('POST', `${this.baseUrl}/equipments/upload`, formData);
+    return this.http.request(req);
+  }
+
+  getFiles(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/equipments/getUploadedFiles`);
+  }
+
+
   
 
   // ---- EQUIPMENT TYPE ----
@@ -74,6 +86,10 @@ export class HttpService {
   public deleteEquipmentType(equipmentType: any): Observable<any> {
     return this.http.delete(this.baseUrl + "/equipmentTypes/delete/" + equipmentType.id);
   }
+
+
+
+
 
   // ---- ROLE ----
 

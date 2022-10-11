@@ -5,6 +5,7 @@ import { RentalComponent } from './rental/rental.component';
 import {RegisterComponent} from "./register/register.component";
 import { DetailComponent } from './detail/detail.component';
 import {LoginComponent} from "./login/login.component";
+import {FileUploadComponent} from "./file-upload/file-upload.component";
 
 const routes: Routes = [
   {
@@ -24,9 +25,14 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'upload',
+    component: FileUploadComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
   }
+
 ];
 
 @NgModule({
