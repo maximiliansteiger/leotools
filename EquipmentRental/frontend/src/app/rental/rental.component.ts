@@ -34,7 +34,7 @@ export class RentalComponent implements OnInit {
 
       this.equipmentTypesMap = new Map();
       this.equipments.forEach((equipment) => {
-        if (equipment.status != 'available') return;
+        if (equipment.status != 'Available') return;
         this.equipmentTypesMap.set(
           equipment.name,
           this.equipmentTypesMap.has(equipment.name)
