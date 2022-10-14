@@ -59,20 +59,12 @@ model equipment {
 
 model equipmentType {
   id                Int               @id @default(autoincrement())
-  name              String
+  name              String           @db.VarChar(100) 
   description       String
-  category_id       Int
-  EquipmentCategory equipmentCategory @relation(fields: [category_id], references: [id])
   Equipment         equipment[]
 
-  @@index([category_id], map: "equipment_type_category_id_fkey")
+  @@unique([name], map: "equipmentType_name_key")
   @@map("equipment_type")
-}
-
-model equipmentCategory {
-  id            Int             @id @default(autoincrement())
-  name          String
-  EquipmentType equipmentType[]
 }
 
 model status {

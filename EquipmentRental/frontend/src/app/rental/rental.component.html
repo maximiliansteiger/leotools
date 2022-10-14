@@ -13,15 +13,13 @@
   <app-equipment-nav></app-equipment-nav>
   <div class="rentals">
     <div class="equipments">
-      <div (click)="redirectDetail(eq)" class="equipment" [ngClass]="{'allTaken':!equipmentTypesMap.get(eq)}" *ngFor="let eq of equipmentTypeNames">
+      <div (click)="redirectDetail(eq)" class="equipment" [ngClass]="{'allTaken':!equipmentTypesMap.get(eq)}"
+        *ngFor="let eq of equipmentTypeNames">
         <img class="eqImg" [src]="getImageByEquipment(eq)">
         <h3 class="eqName">{{eq}}</h3>
-        <!--
-          TODO: Wenn es 0 ist, soll in rot "nicht verfügbar" angezeigt werden.
-        -->
         <h5 [ngClass]="{'available':!equipmentTypesMap.get(eq)}">
           {{equipmentTypesMap.get(eq) ? "verfügbar: " + equipmentTypesMap.get(eq) :"nicht verfügbar"}}
-        
+
         </h5>
       </div>
     </div>

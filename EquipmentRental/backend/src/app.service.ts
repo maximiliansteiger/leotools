@@ -8,11 +8,7 @@ export class AppService {
   equipmentService: EquipmentService;
 
   getHello(): string {
-    return 'Hello Worldsdfdfs';
+    return 'Hello World!';
   }
-  
-  getCSVData(data: any): any {
-    console.log(data);
-    return data;
-  }
+
 }

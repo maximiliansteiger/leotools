@@ -66,9 +66,6 @@ export class HttpService {
     return this.http.get(`${this.baseUrl}/equipments/getUploadedFiles`);
   }
 
-
-  
-
   // ---- EQUIPMENT TYPE ----
 
   public getAllEquipmentTypes(): Observable<any> {
@@ -86,10 +83,6 @@ export class HttpService {
   public deleteEquipmentType(equipmentType: any): Observable<any> {
     return this.http.delete(this.baseUrl + "/equipmentTypes/delete/" + equipmentType.id);
   }
-
-
-
-
 
   // ---- ROLE ----
 
@@ -144,7 +137,4 @@ export class HttpService {
   public deleteReservation(reservation: any): Observable<any> {
     return this.http.delete(this.baseUrl + "/reservations/delete/" + reservation.id);
   }
-
-
-
 }

@@ -38,7 +38,6 @@ export class EquipmentController {
   @Post('upload')
   @UseInterceptors(FilesInterceptor('file', 10, { dest: './uploads' }))
   uploadMultiple(@UploadedFiles() files: any) {
-
     for(let file of files){
       this.equipmentService.insertFile(file);
     }

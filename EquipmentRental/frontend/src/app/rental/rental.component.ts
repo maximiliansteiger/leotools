@@ -21,7 +21,7 @@ export class RentalComponent implements OnInit {
     private http: HttpService,
     private router: Router,
     private details: DetailService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.http.getAllEquipmentTypes().subscribe((data) => {

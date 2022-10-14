@@ -13,7 +13,4 @@ export class CreateEquipmentTypeDto {
     @IsString()
     description: string;
 
-    @ApiProperty()
-    category_id: number;
-
 }
