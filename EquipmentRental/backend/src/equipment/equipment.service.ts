@@ -58,31 +58,11 @@ export class EquipmentService {
     });
   }
 
-  public getFullTypeName(name: any): any {
-    console.log(name);
-    let text = name.replace(/\d/g, '');
-    text = text.replace(/\s/g, '');
-    switch (text) {
-      case 'VK':
-        return 'Videokamera';
-      case 'S':
-        return 'Stativ';
-      case 'PVS':
-        return 'PVS';
-      case 'SS':
-        return 'Schwebestativ';
-      case 'LV':
-        return 'Videolampe';
-      case 'VO':
-        return 'Videoobjektiv';
-      case 'VZ':
-        return 'Videozubehör';
-      default:
-        return name;
-    }
-  }
+
 
   insertFile(file: any) {
+
+
     let fileData!: any;
     fs.readFile('./uploads/' + file.filename, 'latin1', function (err, data) {
       if (err) throw err;
@@ -96,17 +76,21 @@ export class EquipmentService {
 
           let typeName = lineArray[0].replace(/\d/g, ''); // VK 02 -> VK
           typeName = typeName.replace(/\s/g, '');
+
           try {
+
+            let name = getFullTypeName(typeName);
+
             const type = await prisma.equipmentType.upsert({
               where: {
-                name: typeName,
+                name,
               },
               update: {
-                name: typeName,
+                name,
                 description: typeName
               },
               create: {
-                name: typeName,
+                name,
                 description: typeName
               }
             });
@@ -135,5 +119,29 @@ export class EquipmentService {
       if (err) throw err;
       console.log('File deleted!');
     });
+  }
+}
+
+export function getFullTypeName(name: any): any {
+  console.log(name);
+  let text = name.replace(/\d/g, '');
+  text = text.replace(/\s/g, '');
+  switch (text) {
+    case 'VK':
+      return 'Videokamera';
+    case 'S':
+      return 'Stativ';
+    case 'PVS':
+      return 'PVS';
+    case 'SS':
+      return 'Schwebestativ';
+    case 'LV':
+      return 'Videolampe';
+    case 'VO':
+      return 'Videoobjektiv';
+    case 'VZ':
+      return 'Videozubehör';
+    default:
+      return name;
   }
 }

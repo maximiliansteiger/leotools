@@ -62,6 +62,12 @@ export class HttpService {
     return this.http.request(req);
   }
 
+  //getequipmentbytype
+  public getEquipmentByType(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + "/equipments/getByType/" + id);
+  }
+  
+
   getFiles(): Observable<any> {
     return this.http.get(`${this.baseUrl}/equipments/getUploadedFiles`);
   }

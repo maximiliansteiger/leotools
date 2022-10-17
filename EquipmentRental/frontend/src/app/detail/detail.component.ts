@@ -10,35 +10,22 @@ import { HttpService } from '../services/http.service';
 })
 export class DetailComponent implements OnInit {
 
-  constructor(private details: DetailService,private http:HttpService) { }
+  constructor(private details: DetailService, private http: HttpService) { }
   equipmentType = this.details.equipmentType;
 
-  equipmentTypesMap!:any;
-  equipments!:any;
+  equipments!: any;
 
   ngOnInit(): void {
-    this.http.getAllEquipments().subscribe((data) => {
 
-      this.equipments = data;
-
-      this.equipmentTypesMap = new Map();
-
-      this.equipments.forEach((equipment:any) => {
-        // console.log(equipment);
-        if (equipment.status != 'available') return;
-        this.equipmentTypesMap.set(
-          equipment.name,
-          this.equipmentTypesMap.has(equipment.name)
-            ? this.equipmentTypesMap.get(equipment.name) + 1
-            : 1
-        );
-      });
-    })
-    
+    //get all equipment of type
+    // this.http.getEquipmentByType(this.equipmentType).subscribe((data) => {
+    //   this.equipments = data;
+    // }
+    // );
   }
-  
-  getAvailable(name:any){
-    return this.equipmentTypesMap.get(name);
+
+  getAvailable(name: any) {
+    console.log(this.equipmentType);
   }
 
 

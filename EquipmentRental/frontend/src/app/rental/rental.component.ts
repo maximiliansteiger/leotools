@@ -26,6 +26,8 @@ export class RentalComponent implements OnInit {
   ngOnInit(): void {
     this.http.getAllEquipmentTypes().subscribe((data) => {
       this.equipmentTypes = data;
+      console.log(this.equipmentTypes);
+
     });
 
     this.http.getAllEquipments().subscribe((data) => {
@@ -83,25 +85,22 @@ export class RentalComponent implements OnInit {
   }
 
   redirectDetail(equipmentTypeName: any) {
-    let type = this.getTypeByName(equipmentTypeName);
+    console.log(equipmentTypeName);
 
-    console.log(type);
+    let eqtype = this.getEquipmentByName(equipmentTypeName);
+    console.log(eqtype?.EquipmentType);
 
-    if (type != null) {
-      this.details.setEquipmentType(type);
+    if (eqtype?.EquipmentType != null) {
+      this.details.setEquipmentType(eqtype?.EquipmentType);
       this.router.navigate(['/detail']);
     }
   }
 
-  getTypeByName(name: string) {
-    let equipmentTypeData!: any;
-    for (const data of this.equipmentTypes) {
-      if (data.name == name) {
-        equipmentTypeData = data;
-        break;
-      }
-    }
-
-    return equipmentTypeData;
+  getEquipmentByName(equipmentTypeName: any) {
+    let equipment = this.equipments.find(
+      (equipment) => equipment.name == equipmentTypeName
+    );
+    return equipment;
   }
+
 }
