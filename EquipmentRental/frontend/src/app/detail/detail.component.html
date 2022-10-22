@@ -18,7 +18,15 @@
         <div class="info">
             <h2 class="eqName">Name:{{activeEquipment.name}}</h2>
             <h5 class="eqAvailable">verfügbar: {{availableEquipment}}</h5>
-            <button (click)="rent()">reservieren</button>
+
+            <h1>Anzahl:</h1>
+            <input type="number" min="1" [max]="availableEquipment" value="1">
+
+            <h1>von:</h1>
+            <input type="date" [ngModel] ="startDate | date:'yyyy-MM-dd'"> 
+            <h1>bis</h1>
+            <input type="date" [ngModel] ="endDate | date:'yyyy-MM-dd'"> 
+            <input type="button" (click)="rent()" value="reservieren">
         </div>
     </div>
 </body>

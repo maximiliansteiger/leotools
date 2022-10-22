@@ -16,10 +16,13 @@ export class DetailComponent implements OnInit {
   activeEquipment!: Equipment
   equipments!: Equipment[];
   availableEquipment!:number;
+  startDate!: Date;
+  endDate!: Date;
 
   ngOnInit(): void {
     this.activeEquipment = this.details.equipment;
     this.availableEquipment = 0;
+
     this.http.getAllEquipments().subscribe((data) => {
       this.equipments = data;
       console.log(this.equipments);
@@ -34,12 +37,18 @@ export class DetailComponent implements OnInit {
         this.availableEquipment++
       }
     })
-
     return this.availableEquipment;
   }
 
   rent(){
-    // this.http.createReservation
+
+    // let amount = 
+    // let startDate =
+    // let endDate =
+console.log(this.startDate);
+console.log(this.endDate);
+
+    // this.http.createReservation()
   }
 
 
