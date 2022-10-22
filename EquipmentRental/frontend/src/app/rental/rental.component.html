@@ -13,12 +13,12 @@
   <app-equipment-nav></app-equipment-nav>
   <div class="rentals">
     <div class="equipments">
-      <div (click)="redirectDetail(eq)" class="equipment" [ngClass]="{'allTaken':!equipmentTypesMap.get(eq)}"
-        *ngFor="let eq of equipmentTypeNames">
-        <img class="eqImg" [src]="getImageByEquipment(eq)">
+      <div (click)="redirectDetail(eq)" class="equipment" [ngClass]="{'allTaken':!equipmentNamesMap.get(eq)}"
+        *ngFor="let eq of equipmentNamesArray">
+        <img class="eqImg" [src]="getImageByEquipment(eq[0])">
         <h3 class="eqName">{{eq}}</h3>
-        <h5 [ngClass]="{'available':!equipmentTypesMap.get(eq)}">
-          {{equipmentTypesMap.get(eq) ? "verfügbar: " + equipmentTypesMap.get(eq) :"nicht verfügbar"}}
+        <h5 [ngClass]="{'available':!equipmentNamesMap.get(eq)}">
+          {{equipmentNamesMap.get(eq) ? "verfügbar: " + equipmentNamesMap.get(eq) :"nicht verfügbar"}}
 
         </h5>
       </div>

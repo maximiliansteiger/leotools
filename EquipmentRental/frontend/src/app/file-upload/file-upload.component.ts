@@ -20,7 +20,6 @@ export class FileUploadComponent implements OnInit {
     constructor(private http: HttpService) { }
 
     ngOnInit() {
-        // this.fileInfos = this.http.getFiles();
     }
 
     selectFiles(event: any) {

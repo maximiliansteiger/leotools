@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-   
-      
-    
+
+
+
     <div class="content">
-        <img class="eqImg" [src]="getImageByEquipment(equipmentType.name)">
-        
-        <div class="vl"></div>
-        
+        <img class="eqImg" [src]="getImageByEquipment(activeEquipment.EquipmentType.name)">
+
         <div class="info">
-            <h2 class="eqName">{{equipmentType.name}}</h2>
-            <h4 class="eqDescription">{{equipmentType.description}}</h4>
-            <h5 class="eqAvailable">verfügbar: {{getAvailable(equipmentType.name)}}</h5>
+            <h2 class="eqName">Name:{{activeEquipment.name}}</h2>
+            <h5 class="eqAvailable">verfügbar: {{availableEquipment}}</h5>
+            <button (click)="rent()">reservieren</button>
         </div>
     </div>
-    </body>
-</html>
+</body>
 
+</html>

@@ -120,6 +120,21 @@ export class EquipmentService {
       console.log('File deleted!');
     });
   }
+
+
+  findByType(id: number) {
+    return prisma.equipment.findMany({
+      where: {
+        equipmentTypeId: +id
+      },
+      include: {
+        EquipmentType: true
+      },
+    });
+  }
+
+
+
 }
 
 export function getFullTypeName(name: any): any {

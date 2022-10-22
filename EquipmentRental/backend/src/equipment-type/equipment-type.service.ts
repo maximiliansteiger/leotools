@@ -8,7 +8,10 @@ const prisma = new PrismaClient();
 @Injectable()
 export class EquipmentTypeService {
   create(createEquipmentTypeDto: CreateEquipmentTypeDto) {
-    return 'This action adds a new equipmentType';
+    return prisma.equipmentType.create({
+      data: 
+        createEquipmentTypeDto
+    });
   }
 
   findAll() {
@@ -36,6 +39,10 @@ export class EquipmentTypeService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} equipmentType`;
+    return prisma.equipmentType.delete({
+      where: {
+        id: id
+      },
+    });
   }
 }

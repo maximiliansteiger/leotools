@@ -12,9 +12,9 @@ import { HttpService } from '../services/http.service';
 })
 export class RentalComponent implements OnInit {
   equipments!: Equipment[];
-  equipmentTypesMap!: any;
-  equipmentTypeNames!: any;
-  staticEquipment!: Equipment[];
+  equipmentTypesMap!: Map<String, number>;
+  equipmentNamesMap!: Map<String, number>;
+  equipmentNamesArray!: String[];
   equipmentTypes!: EquipmentType[];
 
   constructor(
@@ -24,6 +24,11 @@ export class RentalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.equipmentTypesMap = new Map<String, number>();
+    this.equipmentNamesMap = new Map<String, number>();
+    this.equipmentNamesArray = [];
+
     this.http.getAllEquipmentTypes().subscribe((data) => {
       this.equipmentTypes = data;
       console.log(this.equipmentTypes);
@@ -31,36 +36,19 @@ export class RentalComponent implements OnInit {
     });
 
     this.http.getAllEquipments().subscribe((data) => {
-      this.staticEquipment = data;
       this.equipments = data;
+      console.log(this.equipments);
 
-      this.equipmentTypesMap = new Map();
-      this.equipments.forEach((equipment) => {
-        if (equipment.status != 'Available') return;
-        this.equipmentTypesMap.set(
-          equipment.name,
-          this.equipmentTypesMap.has(equipment.name)
-            ? this.equipmentTypesMap.get(equipment.name) + 1
-            : 1
-        );
-        // if (this.equipmentTypes.has(equipment.name)) {
-        //   this.equipmentTypes.set(equipment.name, this.equipmentTypes.get(equipment.name) + 1);
-        // } else {
-        //   this.equipmentTypes.set(equipment.name, 1);
-        // }
-      });
-
-      //get amount of equipment types (availabilities)
-      this.equipmentTypeNames = new Set();
-      this.equipments.forEach((equipment) => {
-        this.equipmentTypeNames.add(equipment.name);
-      });
+      this.setEquipmentNamesMap();
 
       this.equipments.sort((a, b) =>
         a.EquipmentType.name.localeCompare(b.EquipmentType.name)
       );
     });
   }
+
+ 
+
 
   getImageByEquipment(et: String) {
     let imageURL = '../../assets/img/';
@@ -84,23 +72,39 @@ export class RentalComponent implements OnInit {
     return imageURL;
   }
 
-  redirectDetail(equipmentTypeName: any) {
-    console.log(equipmentTypeName);
-
-    let eqtype = this.getEquipmentByName(equipmentTypeName);
-    console.log(eqtype?.EquipmentType);
-
-    if (eqtype?.EquipmentType != null) {
-      this.details.setEquipmentType(eqtype?.EquipmentType);
+  redirectDetail(equipmentName: any) {
+    let eqtype = this.getEquipmentByName(equipmentName);
+    if (eqtype != null) {
+      this.details.setEquipment(eqtype);
       this.router.navigate(['/detail']);
     }
   }
 
-  getEquipmentByName(equipmentTypeName: any) {
-    let equipment = this.equipments.find(
-      (equipment) => equipment.name == equipmentTypeName
-    );
-    return equipment;
+  getEquipmentByName(equipmentName: any) {
+    let eqtype: Equipment | undefined;
+    this.equipments.forEach((equipment) => {
+      if (equipment.name == equipmentName) {
+        eqtype = equipment;
+        
+      }
+    });
+    return eqtype;
   }
+
+  setEquipmentNamesMap() {
+    this.equipments.forEach((equipment) => {
+      if (equipment.status == "Available") {
+        let num = this.equipmentNamesMap?.get(equipment.name);
+        if (num) {
+          this.equipmentNamesMap.set(equipment.name, num + 1);
+        } else {
+          this.equipmentNamesArray.push(equipment.name);
+          this.equipmentNamesMap.set(equipment.name, 1);
+        }
+      }
+    });
+    console.log(this.equipmentNamesMap);
+  }
+
 
 }

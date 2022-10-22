@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Equipment } from '../models/equipment';
 import { RentalComponent } from '../rental/rental.component';
 import { DetailService } from '../services/detail.service';
 import { HttpService } from '../services/http.service';
@@ -11,21 +12,34 @@ import { HttpService } from '../services/http.service';
 export class DetailComponent implements OnInit {
 
   constructor(private details: DetailService, private http: HttpService) { }
-  equipmentType = this.details.equipmentType;
-
-  equipments!: any;
+  
+  activeEquipment!: Equipment
+  equipments!: Equipment[];
+  availableEquipment!:number;
 
   ngOnInit(): void {
-
-    //get all equipment of type
-    // this.http.getEquipmentByType(this.equipmentType).subscribe((data) => {
-    //   this.equipments = data;
-    // }
-    // );
+    this.activeEquipment = this.details.equipment;
+    this.availableEquipment = 0;
+    this.http.getAllEquipments().subscribe((data) => {
+      this.equipments = data;
+      console.log(this.equipments);
+      this.getAvailable(this.activeEquipment.name);
+    });
+    
   }
 
   getAvailable(name: any) {
-    console.log(this.equipmentType);
+    this.equipments.forEach((equipment) =>{
+      if(equipment.name == name && equipment.status == "Available"){
+        this.availableEquipment++
+      }
+    })
+
+    return this.availableEquipment;
+  }
+
+  rent(){
+    // this.http.createReservation
   }
 
 
