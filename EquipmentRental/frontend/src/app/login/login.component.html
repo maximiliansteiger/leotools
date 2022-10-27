@@ -10,28 +10,27 @@
 </head>
 <body>
 <div class="wrapper ">
-  <div class=" ">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"  [formGroup]="loginForm">
+  <div class="">
+    <form class="bg-white shadow-md rounded px-10 pt-6 pb-8 mb-4"  [formGroup]="loginForm">
       <div class="mb-4">
         <label class="block text-darkgray text-sm font-bold mb-2" >
           E-Mail
         </label>
-        <input formControlName="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray leading-tight focus:outline-none focus:shadow-outline"  type="text" placeholder="Mustermann">
+        <input formControlName="email" class="shadow  border rounded w-full py-2 px-3 text-gray leading-tight focus:outline-none focus:shadow-outline"  type="email" placeholder="j.doe@students.htl-leonding.ac.at">
+        <p class="text-red text-xs italic" *ngIf="loginForm.get('email')?.touched && !loginForm.get('email')?.valid">Bitte geben Sie eine Email ein.</p>
       </div>
       <div class="mb-6">
         <label class="block text-darkgray text-sm font-bold mb-2" >
           Passwort
         </label>
-        <input formControlName="password" class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-gray mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" placeholder="******************">
-        <p class="text-red text-xs italic">Please choose a password.</p>
+        <input formControlName="password" class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" placeholder="******************">
+        <p class="text-red text-xs italic" *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.valid">Bitte geben Sie ein Passwort ein.</p>
       </div>
       <div class="flex items-center justify-between">
-        <button (click)="login()" class="bg-midblue hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" >
+        <button (click)="login()" [disabled]="!loginForm.valid" class="bg-midblue hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" >
           Login
         </button>
-        <!--<a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-          Forgot Password?
-        </a>-->
+    
       </div>
     </form>
   </div>
