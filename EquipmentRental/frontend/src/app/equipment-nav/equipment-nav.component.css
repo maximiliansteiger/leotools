@@ -1,0 +1,53 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); */
+
+.leorent {
+  font-weight: 900;
+  font-size: 2em; 
+  margin-left:20%;
+}
+.subNav {
+  font-weight: 600;
+}
+
+.leorent:hover {
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+.filterButton {
+  margin-right: 10px;
+  margin-bottom: 1%;
+  background-color: transparent;
+  color: white;
+}
+.searchInput {
+  margin-right: 10px;
+  margin-bottom: 1%;
+  color: white;
+}
+#searchLabel {
+  color: white;
+}
+
+.reservationNav {
+  margin-left: 2.5%;
+  font-size: 1.5em;
+}
+.equipmentNav{
+    margin-left:5%;
+    font-size: 1.5em;
+}
+.eq-res{
+    font-size:15px;
+    padding-top: 0.5%; 
+    font-weight: -100;
+    color:white;
+}
+.searchFormField{
+    font-size: 0.65em;
+    color:white;
+}
