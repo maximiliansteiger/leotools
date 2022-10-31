@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Equipment } from '../models/equipment';
 import { RentalComponent } from '../rental/rental.component';
 import { DetailService } from '../services/detail.service';
 import { HttpService } from '../services/http.service';
@@ -10,35 +11,44 @@ import { HttpService } from '../services/http.service';
 })
 export class DetailComponent implements OnInit {
 
-  constructor(private details: DetailService,private http:HttpService) { }
-  equipmentType = this.details.equipmentType;
-
-  equipmentTypesMap!:any;
-  equipments!:any;
+  constructor(private details: DetailService, private http: HttpService) { }
+  
+  activeEquipment!: Equipment
+  equipments!: Equipment[];
+  availableEquipment!:number;
+  startDate!: Date;
+  endDate!: Date;
 
   ngOnInit(): void {
+    this.activeEquipment = this.details.equipment;
+    this.availableEquipment = 0;
+
     this.http.getAllEquipments().subscribe((data) => {
-
       this.equipments = data;
-
-      this.equipmentTypesMap = new Map();
-
-      this.equipments.forEach((equipment:any) => {
-        // console.log(equipment);
-        if (equipment.status != 'available') return;
-        this.equipmentTypesMap.set(
-          equipment.name,
-          this.equipmentTypesMap.has(equipment.name)
-            ? this.equipmentTypesMap.get(equipment.name) + 1
-            : 1
-        );
-      });
-    })
+      console.log(this.equipments);
+      this.getAvailable(this.activeEquipment.name);
+    });
     
   }
-  
-  getAvailable(name:any){
-    return this.equipmentTypesMap.get(name);
+
+  getAvailable(name: any) {
+    this.equipments.forEach((equipment) =>{
+      if(equipment.name == name && equipment.status == "Available"){
+        this.availableEquipment++
+      }
+    })
+    return this.availableEquipment;
+  }
+
+  rent(){
+
+    // let amount = 
+    // let startDate =
+    // let endDate =
+console.log(this.startDate);
+console.log(this.endDate);
+
+    // this.http.createReservation()
   }
 
 

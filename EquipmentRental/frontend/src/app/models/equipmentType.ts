@@ -1,5 +1,5 @@
 export type EquipmentType = {
-    id: string,
+    id: number,
     name: string,
     description: string,
 }

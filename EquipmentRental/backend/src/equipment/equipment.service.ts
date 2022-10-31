@@ -58,55 +58,31 @@ export class EquipmentService {
     });
   }
 
-  public getFullTypeName(name: any): any {
-    console.log(name);
-    let text = name.replace(/\d/g, '');
-    text = text.replace(/\s/g, '');
-    switch (text) {
-      case 'VK':
-        return 'Videokamera';
-      case 'S':
-        return 'Stativ';
-      case 'PVS':
-        return 'PVS';
-      case 'SS':
-        return 'Schwebestativ';
-      case 'LV':
-        return 'Videolampe';
-      case 'VO':
-        return 'Videoobjektiv';
-      case 'VZ':
-        return 'Videozubehör';
-      default:
-        return name;
-    }
-  }
+
 
   insertFile(file: any) {
-    let fileData!: any;
     fs.readFile('./uploads/' + file.filename, 'latin1', function (err, data) {
       if (err) throw err;
-      fileData = data;
-      // go through each line and split by ; then create json object containing: set, name, typ, serialNumber, notes, anlagenummer
-      let fileDataArray = fileData.split('\r\n');
+      let fileDataArray = data.split('\r\n');
       fileDataArray.shift();
       fileDataArray.forEach(async function (line: any) {
         let lineArray = line.split(';');
         if (lineArray[0].length > 0) {
-
-          let typeName = lineArray[0].replace(/\d/g, ''); // VK 02 -> VK
-          typeName = typeName.replace(/\s/g, '');
+          let typeName = lineArray[0].replace(/[0-9 ]+/g, ''); // VK 02 -> VK
           try {
+
+            let name = getFullTypeName(typeName);
+
             const type = await prisma.equipmentType.upsert({
               where: {
-                name: typeName,
+                name,
               },
               update: {
-                name: typeName,
+                name,
                 description: typeName
               },
               create: {
-                name: typeName,
+                name,
                 description: typeName
               }
             });
@@ -127,7 +103,6 @@ export class EquipmentService {
             });
           } catch (error) {
           }
-          // delete file
         }
       });
     });
@@ -135,5 +110,41 @@ export class EquipmentService {
       if (err) throw err;
       console.log('File deleted!');
     });
+  }
+
+
+  findByType(id: number) {
+    return prisma.equipment.findMany({
+      where: {
+        equipmentTypeId: +id
+      },
+      include: {
+        EquipmentType: true
+      },
+    });
+  }
+
+
+
+}
+
+export function getFullTypeName(name: any): any {
+  switch (name) {
+    case 'VK':
+      return 'Videokamera';
+    case 'S':
+      return 'Stativ';
+    case 'PVS':
+      return 'PVS';
+    case 'SS':
+      return 'Schwebestativ';
+    case 'LV':
+      return 'Videolampe';
+    case 'VO':
+      return 'Videoobjektiv';
+    case 'VZ':
+      return 'Videozubehör';
+    default:
+      return name;
   }
 }

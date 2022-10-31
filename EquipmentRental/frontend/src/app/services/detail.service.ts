@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Equipment } from '../models/equipment';
 import { EquipmentType } from '../models/equipmentType';
 import { HttpService } from '../services/http.service';
 
@@ -7,17 +8,13 @@ import { HttpService } from '../services/http.service';
 })
 export class DetailService {
   constructor(private http: HttpService) {}
-  equipmentType!: EquipmentType;
+  equipment!: Equipment;
 
-  setEquipmentType(equipmentType: any) {
-    this.equipmentType = equipmentType;
+  setEquipment(equipment:Equipment){
+    this.equipment = equipment;
+    console.log(equipment);
   }
 
-  getAllEquipmentTypes():any {
-    let allTypes!: EquipmentType[];
-    this.http.getAllEquipmentTypes().subscribe((data) => {
-      allTypes = data;
-    });
-    return allTypes;
-  }
+  
+
 }

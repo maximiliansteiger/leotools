@@ -62,6 +62,11 @@ export class HttpService {
     return this.http.request(req);
   }
 
+  public getEquipmentByType(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + "/equipments/getByTypeId/" + id);
+  }
+  
+
   getFiles(): Observable<any> {
     return this.http.get(`${this.baseUrl}/equipments/getUploadedFiles`);
   }
@@ -72,7 +77,7 @@ export class HttpService {
     return this.http.get(this.baseUrl + "/equipmentTypes/getAll");
   }
   public getEquipmentTypeById(id: number): Observable<any> {
-    return this.http.get(this.baseUrl + "/equipmentTypes/get/" + id);
+    return this.http.get(this.baseUrl + "/equipmentTypes/" + id);
   }
   public createEquipmentType(equipmentType: any): Observable<any> {
     return this.http.post(this.baseUrl + "/equipmentTypes/create", equipmentType);

@@ -12,7 +12,7 @@ export class UserController {
     return this.userService.create(createUserDto);
   }
 
-  @Get()
+  @Get('getAll')
   findAll() {
     return this.userService.findAll();
   }
@@ -31,4 +31,11 @@ export class UserController {
   remove(@Param('id') id: string) {
     return this.userService.remove(+id);
   }
+
+  //login
+  @Post('login')
+  login(@Body() data: any) {
+    return this.userService.connect(data);
+  }
+
 }

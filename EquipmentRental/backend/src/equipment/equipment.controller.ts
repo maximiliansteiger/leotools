@@ -34,6 +34,10 @@ export class EquipmentController {
   }
 
 
+  @Get('getByTypeId/:id')
+  findByType(@Param('id') id: number) {
+    return this.equipmentService.findByType(id);
+  }
 
   @Post('upload')
   @UseInterceptors(FilesInterceptor('file', 10, { dest: './uploads' }))

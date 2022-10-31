@@ -1,73 +1,94 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { authenticate } from 'ldap-authentication';
+
+
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 
 @Injectable()
 export class UserService {
   create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+    return prisma.user.create({
+      data:
+        createUserDto
+    });
   }
 
   findAll() {
-    return `This action returns all user`;
+    return prisma.user.findMany();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} user`;
+    return prisma.user.findUnique({
+      where: {
+        id: id
+      },
+    });
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+    return prisma.user.update({
+      where: {
+        id: id
+      },
+      data: updateUserDto,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} user`;
+    return prisma.user.delete({
+      where: {
+        id: id
+      },
+    });
   }
 
+  async connect(data: any) {
 
-  connect(data: any) {
+    const ldap = require('ldapjs');
 
-    const { authenticate } = require('ldap-authentication')
+    // auth with regular user
+    // let options = {
+    //   ldapOpts: {
+    //     url: 'ldap://addc01.edu.htl-leonding.ac.at',
+    //     tlsOptions: { rejectUnauthorized: false }
+    //   },
+    //   userDn: 'ou=HTL,dc=EDU,dc=HTL-LEONDING,dc=AC,dc=AT',
+    //   userPassword: data.password,
+    //   usernameAttribute: 'uid',
+    //   username: data.username,
+    //   // starttls: false
+    // }
+    // let authenticated = await authenticate({
+    //   ldapOpts: { url: 'ldaps://addc01.edu.htl-leonding.ac.at:636' },
+    //   userDn: `uid=${data.username}@EDU,ou=Students,ou=HTL,dc=EDU,dc=HTL-LEONDING,dc=AC,dc=AT`,
+    //   userPassword: data.password,
+    // })
 
-    async function auth() {
-      // auth with admin
-      // let options = {
-      //   ldapOpts: {
-      //     url: 'ldap://ldap.forumsys.com',
-      //     // tlsOptions: { rejectUnauthorized: false }
-      //   },
-      //   adminDn: 'cn=read-only-admin,dc=example,dc=com',
-      //   adminPassword: 'password',
-      //   userPassword: 'password',
-      //   userSearchBase: 'dc=example,dc=com',
-      //   usernameAttribute: 'uid',
-      //   username: 'gauss',
-      //   // starttls: false
-      // }
+    // let authenticate = (userId, password) => {
+    //   return new Promise((resolve, reject) => {
+    //     const ldapClient = ldap.createClient(ldapOptions);
+    
+    //     ldapClient.bind(
+    //       'cn=' + userId + ',' + ldapConfig.domain,
+    //       password,
+    //       (err, res) => {
+    //         if (err) {
+    //           //@see https://github.com/mcavage/node-ldapjs/blob/7059cf6b8a0b4ff4c566714d97f3cef04f887c3b/test/client.test.js @ 305
+    //           return reject(err);
+    //         }
+    //         ldapClient.unbind();
+    //         return resolve(res);
+    //       }
+    //     );
+    //   }
+    // };
 
-      // let user = await authenticate(options)
-      // console.log(user)
-
-      // auth with regular user
-      let options = {
-        ldapOpts: {
-          url: 'ldap://ldap.forumsys.com',
-          // tlsOptions: { rejectUnauthorized: false }
-        },
-        userDn: 'uid=einstein,dc=example,dc=com',
-        userPassword: 'password',
-        userSearchBase: 'dc=example,dc=com',
-        usernameAttribute: 'uid',
-        username: 'einstein',
-        // starttls: false
-      }
-
-      let user = await authenticate(options)
-      console.log(user)
-    }
-
-    auth()
+    // // let user = await authenticate(options)
+    // console.log(`user = ${JSON.stringify(authenticated, null, 2)}`)
 
 
   }
