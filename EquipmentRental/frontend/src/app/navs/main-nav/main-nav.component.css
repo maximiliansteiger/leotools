@@ -25,6 +25,7 @@ nav a{
 
 nav a:hover{
     color:#839db6;
+    cursor: pointer;
 }
 
 span a{

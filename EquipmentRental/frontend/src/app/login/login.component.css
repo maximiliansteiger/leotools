@@ -1,10 +1,44 @@
-.wrapper{
-  margin-top: 10%;
+body{
+  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-input{
-  margin-right: 2.5rem;  
+.tools {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+      "toolImage toolImage toolImage toolImage hr toolContent toolContent toolContent toolContent toolContent toolContent";
+  width: 60vw;
+}
+
+.toolImage {
+  grid-area: toolImage;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toolImage svg {
+  height: 70%;
+  width: auto;
+}
+
+.hr {
+  grid-area: hr;
+}
+
+.toolContent {
+  grid-area: toolContent;
+  margin: auto;
+}
+
+
+button{
+  cursor: pointer;
 }

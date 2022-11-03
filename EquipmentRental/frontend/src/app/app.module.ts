@@ -6,12 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RentalComponent } from './rental/rental.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { DetailComponent } from './detail/detail.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { MainNavComponent } from './navs/main-nav/main-nav.component';
-import { EquipmentNavComponent } from './navs/equipment-nav/equipment-nav.component';
 import { ReservationNavComponent } from './navs/reservation-nav/reservation-nav.component';
 import { HomeComponent } from './home/home.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -29,11 +27,9 @@ import { ReservationComponent } from './reservation/reservation.component';
     AppComponent,
     RentalComponent,
     LoginComponent,
-    RegisterComponent,
     DetailComponent,
     FileUploadComponent,
     MainNavComponent,
-    EquipmentNavComponent,
     ReservationNavComponent,
     HomeComponent,
     ReservationComponent,
