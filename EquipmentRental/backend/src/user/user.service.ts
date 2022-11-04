@@ -71,7 +71,7 @@ export class UserService {
     // let authenticate = (userId, password) => {
     //   return new Promise((resolve, reject) => {
     //     const ldapClient = ldap.createClient(ldapOptions);
-    
+
     //     ldapClient.bind(
     //       'cn=' + userId + ',' + ldapConfig.domain,
     //       password,
@@ -89,6 +89,17 @@ export class UserService {
 
     // // let user = await authenticate(options)
     // console.log(`user = ${JSON.stringify(authenticated, null, 2)}`)
+
+
+    var LdapStrategy = require('passport-ldapauth');
+    var passport = require('passport');
+    
+      passport.use(new LdapStrategy({
+        server: {
+          url: 'ldap://localhost:389',
+        }
+      }));
+
 
 
   }
