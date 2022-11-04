@@ -21,6 +21,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReservationComponent } from './reservation/reservation.component';
+import { EquipmentNavComponent } from './navs/equipment-nav/equipment-nav.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ReservationComponent } from './reservation/reservation.component';
     ReservationNavComponent,
     HomeComponent,
     ReservationComponent,
+    EquipmentNavComponent,
     
   ],
   imports: [
