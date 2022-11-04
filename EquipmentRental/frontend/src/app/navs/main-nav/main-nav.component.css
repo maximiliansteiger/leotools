@@ -20,6 +20,12 @@ nav a{
     text-decoration: none;
     font-size: 1.5em;
     font-family: 'Poppins', sans-serif;
+    transition: .5s;
+}
+
+nav a:hover{
+    color:#839db6;
+    cursor: pointer;
 }
 
 span a{

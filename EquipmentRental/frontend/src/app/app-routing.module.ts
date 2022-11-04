@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { RentalComponent } from './rental/rental.component';
-import {RegisterComponent} from "./register/register.component";
 import { DetailComponent } from './detail/detail.component';
 import {LoginComponent} from "./login/login.component";
 import {FileUploadComponent} from "./file-upload/file-upload.component";
@@ -12,6 +10,14 @@ import { ReservationComponent } from './reservation/reservation.component';
 const routes: Routes = [
   {
     path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
     component: HomeComponent
   },
   {
@@ -19,16 +25,8 @@ const routes: Routes = [
     component: RentalComponent
   },
   {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
     path: 'detail',
     component: DetailComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
   },
   {
     path: 'reservation',
@@ -40,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
+    component: HomeComponent,
   }
 
 ];

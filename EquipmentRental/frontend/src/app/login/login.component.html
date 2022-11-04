@@ -5,36 +5,39 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="/dist/output.css" rel="stylesheet">
-  <title>Document</title>
+  <title>Login</title>
 </head>
 <body>
-<div class="wrapper ">
-  <div class="">
-    <form class="bg-white shadow-md rounded px-10 pt-6 pb-8 mb-4"  [formGroup]="loginForm">
-      <div class="mb-4">
-        <label class="block text-darkgray text-sm font-bold mb-2" >
-          E-Mail
-        </label>
-        <input formControlName="email" class="shadow  border rounded w-full py-2 px-3 text-gray leading-tight focus:outline-none focus:shadow-outline"  type="email" placeholder="j.doe@students.htl-leonding.ac.at">
-        <p class="text-red text-xs italic" *ngIf="loginForm.get('email')?.touched && !loginForm.get('email')?.valid">Bitte geben Sie eine Email ein.</p>
-      </div>
-      <div class="mb-6">
-        <label class="block text-darkgray text-sm font-bold mb-2" >
-          Passwort
-        </label>
-        <input formControlName="password" class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" placeholder="******************">
-        <p class="text-red text-xs italic" *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.valid">Bitte geben Sie ein Passwort ein.</p>
-      </div>
-      <div class="flex items-center justify-between">
-        <button (click)="login()" [disabled]="!loginForm.valid" class="bg-midblue hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" >
-          Login
-        </button>
-    
-      </div>
-    </form>
+  <div class="tools">
+    <div class="toolImage">
+      <img src="../../assets/img/hansLogin.png">
+    </div>
+    <div class="hr">
+    </div>
+    <div class="toolContent">
+      <form class="bg-white shadow-md rounded px-10 pt-6 pb-8 mb-4"  [formGroup]="loginForm">
+        <div class="mb-4">
+          <label class="block text-darkgray text-sm font-bold mb-2" >
+            E-Mail
+          </label>
+          <input formControlName="email" class="shadow  border rounded w-full py-2 px-3 text-gray leading-tight focus:outline-none focus:shadow-outline"  type="email" placeholder="j.doe@students.htl-leonding.ac.at">
+          <p class="text-red text-xs italic" *ngIf="loginForm.get('email')?.touched && !loginForm.get('email')?.valid">Bitte geben Sie eine Email ein.</p>
+        </div>
+        <div class="mb-6">
+          <label class="block text-darkgray text-sm font-bold mb-2" >
+            Passwort
+          </label>
+          <input formControlName="password" class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" placeholder="******************">
+          <p class="text-red text-xs italic" *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.valid">Bitte geben Sie ein Passwort ein.</p>
+        </div>
+        <div class="flex items-center justify-between">
+          <button (click)="login()" class="bg-midblue hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
 </body>
 </html>
