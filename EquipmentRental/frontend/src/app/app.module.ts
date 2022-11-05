@@ -22,6 +22,8 @@ import {MatSelectModule} from "@angular/material/select";
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReservationComponent } from './reservation/reservation.component';
 import { EquipmentNavComponent } from './navs/equipment-nav/equipment-nav.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { EquipmentNavComponent } from './navs/equipment-nav/equipment-nav.compon
     MatIconModule,
     MatSelectModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ],
   exports: [
 

@@ -13,12 +13,4 @@ export class MainNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToEquipment(){
-    this.router.navigate(['equipment']);
-  }
-
-  goToReservierungen(){
-    this.router.navigate(['reservation']);
-  }
-
 }

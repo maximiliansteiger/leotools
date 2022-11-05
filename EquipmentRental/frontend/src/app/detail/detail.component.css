@@ -38,3 +38,15 @@ a {
   a:hover {
     color: #242424;
   }
+.datepickers{
+    position: relative;
+    width: 50%;
+    height: 50%;
+    border-radius: 4px;
+    margin: 20%;
+    margin-left:0%;
+    text-align: left;
+}
+.filterButton{
+    margin-top:5%;
+}

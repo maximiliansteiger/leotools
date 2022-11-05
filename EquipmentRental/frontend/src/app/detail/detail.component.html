@@ -22,11 +22,22 @@
             <h1>Anzahl:</h1>
             <input type="number" min="1" [max]="availableEquipment" value="1">
 
-            <h1>von:</h1>
-            <input type="date" [ngModel] ="startDate | date:'yyyy-MM-dd'"> 
-            <h1>bis</h1>
-            <input type="date" [ngModel] ="endDate | date:'yyyy-MM-dd'"> 
-            <input type="button" (click)="rent()" value="reservieren">
+            <div class="datepickers">
+                <mat-form-field appearance="fill" >
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [formGroup]="range"[rangePicker]="picker">
+                      <input matStartDate formControlName="start" placeholder="Start date">
+                      <input matEndDate formControlName="end" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field>
+            </div>
+
+            <button [disabled]="range!.value.end==undefined || range!.value.start==undefined"
+            class="filterButton" mat-stroked-button color="basic" (click)="rent()">Reservieren</button>
+
         </div>
     </div>
 </body>

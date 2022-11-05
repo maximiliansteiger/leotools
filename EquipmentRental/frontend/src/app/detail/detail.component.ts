@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Equipment } from '../models/equipment';
 import { RentalComponent } from '../rental/rental.component';
 import { DetailService } from '../services/detail.service';
@@ -11,14 +13,17 @@ import { HttpService } from '../services/http.service';
 })
 export class DetailComponent implements OnInit {
 
-  constructor(private details: DetailService, private http: HttpService) { }
-  
+  constructor(private details: DetailService, private http: HttpService, private router: Router) { }
+
   activeEquipment!: Equipment
   equipments!: Equipment[];
-  availableEquipment!:number;
-  startDate!: Date;
-  endDate!: Date;
-
+  availableEquipment!: number;
+  startDate!: Date | null | undefined;
+  endDate!: Date | null | undefined;
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
   ngOnInit(): void {
     this.activeEquipment = this.details.equipment;
     this.availableEquipment = 0;
@@ -28,25 +33,31 @@ export class DetailComponent implements OnInit {
       console.log(this.equipments);
       this.getAvailable(this.activeEquipment.name);
     });
-    
+
+  }
+  setDates() {
+
   }
 
   getAvailable(name: any) {
-    this.equipments.forEach((equipment) =>{
-      if(equipment.name == name && equipment.status == "Available"){
+    this.equipments.forEach((equipment) => {
+      if (equipment.name == name && equipment.status == "Available") {
         this.availableEquipment++
       }
     })
     return this.availableEquipment;
   }
 
-  rent(){
+  rent() {
 
     // let amount = 
     // let startDate =
-    // let endDate =
-console.log(this.startDate);
-console.log(this.endDate);
+    //     // let endDate =
+    this.startDate = this.range.value.start;
+    this.endDate = this.range.value.end;
+    console.log(this.startDate);
+    console.log(this.endDate);
+    this.router.navigate(['/equipment']);
 
     // this.http.createReservation()
   }

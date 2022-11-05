@@ -1,7 +1,7 @@
 <nav class="navMenu">
-    <a (click)="goToEquipment()">EQUIPMENT</a>
+    <a [routerLink]="['/equipment']">EQUIPMENT</a>
     <span>
-        <a routerLink="">LEORENT</a>
+        <a [routerLink]="['/home']">LEORENT</a>
     </span>
-    <a (click)="goToReservierungen()">RESERVIERUNGEN</a>
+    <a [routerLink]="['/reservation']">RESERVIERUNGEN</a>
 </nav>

@@ -13,8 +13,9 @@ body{
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-      "toolImage toolImage toolImage toolImage hr toolContent toolContent toolContent toolContent toolContent toolContent";
+      "toolImage toolImage toolImage toolImage toolImage toolContent toolContent toolContent toolContent toolContent toolContent";
   width: 60vw;
+  height: auto;
 }
 
 .toolImage {
@@ -24,13 +25,9 @@ body{
   align-items: center;
 }
 
-.toolImage svg {
+.toolImage img {
   height: 70%;
   width: auto;
-}
-
-.hr {
-  grid-area: hr;
 }
 
 .toolContent {
