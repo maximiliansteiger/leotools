@@ -10,7 +10,8 @@
 </head>
 
 <body>
-  <app-equipment-nav></app-equipment-nav>
+  <app-main-nav></app-main-nav>
+  <app-filter-nav></app-filter-nav>
   <div class="rentals">
     <div class="equipments">
       <div (click)="redirectDetail(eq)" class="equipment" [ngClass]="{'allTaken':!equipmentNamesMap.get(eq)}"

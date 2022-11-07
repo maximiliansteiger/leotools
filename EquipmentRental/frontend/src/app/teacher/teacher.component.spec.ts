@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReservationNavComponent } from './reservation-nav.component';
+import { TeacherComponent } from './teacher.component';
 
-describe('ReservationNavComponent', () => {
-  let component: ReservationNavComponent;
-  let fixture: ComponentFixture<ReservationNavComponent>;
+describe('TeacherComponent', () => {
+  let component: TeacherComponent;
+  let fixture: ComponentFixture<TeacherComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReservationNavComponent ]
+      declarations: [ TeacherComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ReservationNavComponent);
+    fixture = TestBed.createComponent(TeacherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

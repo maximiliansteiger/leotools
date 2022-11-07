@@ -6,6 +6,8 @@ import {LoginComponent} from "./login/login.component";
 import {FileUploadComponent} from "./file-upload/file-upload.component";
 import {HomeComponent} from "./home/home.component";
 import { ReservationComponent } from './reservation/reservation.component';
+import { HelpPageComponent } from './help-page/help-page.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 const routes: Routes = [
   {
@@ -15,6 +17,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'help',
+    component: HelpPageComponent
+  },
+  {
+    path: 'teacher',
+    component: TeacherComponent
   },
   {
     path: 'home',

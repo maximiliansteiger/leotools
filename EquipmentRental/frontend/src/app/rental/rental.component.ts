@@ -52,6 +52,7 @@ export class RentalComponent implements OnInit {
 
   getImageByEquipment(et: String) {
     let imageURL = '../../assets/img/';
+    let imageURL2 = '../../assets/img/video.png';
     switch (et) {
       case 'Zoom H2n':
         imageURL += 'zoom.png';
@@ -69,7 +70,7 @@ export class RentalComponent implements OnInit {
         imageURL += 'err.png';
         break;
     }
-    return imageURL;
+    return imageURL2;
   }
 
   redirectDetail(equipmentName: any) {
