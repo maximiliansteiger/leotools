@@ -23,7 +23,7 @@ ul {
 }
 
 .footer {
-    background-color: #ffffff;
+    background-color: rgb(251, 253, 255);
     padding: 50px 0;
 }
 
@@ -65,7 +65,7 @@ hr {
 }
 
 .footer-col ul li a:hover {
-    color: #5f7181;
+    color: #878c9f;
     padding-left: 8px;
 }
 

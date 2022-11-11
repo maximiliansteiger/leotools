@@ -14,7 +14,6 @@ a {
     font-size: 1.5em;
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
-    transition: .5s;
     width: 10vw;
     text-align: center;
     color: #91aeca;
@@ -27,5 +26,88 @@ a:hover {
 }
 
 span a {
-    font-size: 4.5em;
+    font-size: 3em;
+}
+
+button {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    width: 10vw;
+}
+
+span {
+    color: #91aeca;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+}
+
+ul {
+    border: none;
+}
+
+ul li {
+    padding: 10px 20px;
+    background-color: rgb(251, 253, 255);
+}
+
+ul li a {
+    width: fit-content;
+    height: auto;
+    background-color: rgb(251, 253, 255);
+    color: black;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+ul li:hover {
+    background-color: #91aeca;
+    cursor: pointer;
+}
+
+ul li:hover a {
+    background-color: #91aeca;
+}
+
+li>ul {
+    transform: translatex(100%) scale(0)
+}
+
+li:hover>ul {
+    transform: translatex(101%) scale(1)
+}
+
+li>button svg {
+    transform: rotate(-90deg)
+}
+
+li:hover>button svg {
+    transform: rotate(-270deg)
+}
+
+.group:hover .group-hover\:scale-100 {
+    transform: scale(1)
+}
+
+.group:hover .group-hover\:-rotate-180 {
+    transform: rotate(180deg)
+}
+
+.scale-0 {
+    transform: scale(0)
+}
+
+.min-w-32 {
+    min-width: 8rem
+}
+
+svg {
+    fill: #839db6;
+    position: relative;
+    /* left: -2vw; */
+    height: 3vh;
+    width: auto;
 }
