@@ -7,11 +7,19 @@
 }
 
 body{
-    height: 100vh;
     background-image: url("../../assets/img/background.png");
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-size: cover;
     background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    z-index: -5;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .headline {
@@ -46,7 +54,7 @@ h1 {
     grid-template-areas:
         "toolImage toolImage toolImage toolImage hr toolContent toolContent toolContent toolContent toolContent toolContent";
     width: 60vw;
-    margin: 0 auto 10vh;
+    margin: 10vh 0 0;
 }
 
 .toolImage {

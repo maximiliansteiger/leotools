@@ -25,6 +25,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { TeacherComponent } from './teacher/teacher.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { FilterNavComponent } from './filter-nav/filter-nav.component';
+import { FooterComponent } from './footer/footer.component';
+import { FaqComponent } from './faq/faq.component';
+import { AboutComponent } from './about/about.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { FilterNavComponent } from './filter-nav/filter-nav.component';
     ReservationComponent,
     TeacherComponent,
     HelpPageComponent,
-    FilterNavComponent
+    FilterNavComponent,
+    FooterComponent,
+    FaqComponent,
+    AboutComponent,
+    ContactUsComponent
     ],
   imports: [
     BrowserModule,

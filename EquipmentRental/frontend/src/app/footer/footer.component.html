@@ -1,0 +1,49 @@
+<head>
+    <title>Footer Design</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>LEHRER</h4>
+                    <hr>
+                    <ul>
+                        <li><a [routerLink]="['/teacher']">Alle Information</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>EQUIPMENT</h4>
+                    <hr>
+                    <ul>
+                        <li><a [routerLink]="['/equipment']">Ganzes Equipment</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>RESERVIERUNGEN</h4>
+                    <hr>
+                    <ul>
+                        <li><a [routerLink]="['/reservation']">Deine Reservierungen</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>HELP</h4>
+                    <hr>
+                    <ul>
+                        <li><a [routerLink]="['/about']">Über uns</a></li>
+                        <li><a [routerLink]="['/faq']">FAQ</a></li>
+                        <li><a [routerLink]="['/contact-us']">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <p>©2022 HTL Leonding | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
