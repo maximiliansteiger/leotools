@@ -1,25 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-image: url("../../assets/img/background.png");
-    /* background-attachment: fixed; */
     background-size: cover;
     background-repeat: repeat;
+    height: 100vh;
+    width: auto;
+}
+
+.content {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
-    z-index: -5;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .headline {
@@ -51,10 +48,8 @@ h1 {
     grid-auto-columns: 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
-    grid-template-areas:
-        "toolImage toolImage toolImage toolImage hr toolContent toolContent toolContent toolContent toolContent toolContent";
+    grid-template-areas: "toolImage toolImage toolImage toolImage hr toolContent toolContent toolContent toolContent toolContent toolContent";
     width: 60vw;
-    margin: 10vh 0 0;
 }
 
 .toolImage {

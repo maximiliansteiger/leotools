@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
-
 nav {
     display: flex;
     justify-content: space-around;
@@ -10,14 +9,13 @@ nav {
     z-index: 20;
 }
 
-
 a {
     text-decoration: none;
     font-size: 1.5em;
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
     transition: .5s;
-    width: auto;
+    width: 10vw;
     text-align: center;
     color: #91aeca;
 }

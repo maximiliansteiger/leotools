@@ -29,6 +29,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FaqComponent } from './faq/faq.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MerklisteComponent } from './merkliste/merkliste.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     FooterComponent,
     FaqComponent,
     AboutComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    MerklisteComponent
     ],
   imports: [
     BrowserModule,

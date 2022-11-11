@@ -11,6 +11,7 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { AboutComponent } from './about/about.component';
 import { FaqComponent } from './faq/faq.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MerklisteComponent } from './merkliste/merkliste.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'reservation',
     component: ReservationComponent
+  },
+  {
+    path: 'merkliste',
+    component: MerklisteComponent
   },
   {
     path: 'upload',

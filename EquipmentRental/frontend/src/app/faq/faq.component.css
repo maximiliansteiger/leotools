@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+body {
+    color: #3B4752;
+    font-family: 'Poppins', sans-serif;
+    background-image: url("../../assets/img/background.png");
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+.wrapper {
+    width: 60vw;
+    height: 70vh;
+    padding: 5vh;
+    background-color: #fafbff;
+    margin: 0 auto;
+    border-radius: 1%;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.faq-header {
+    font-size: 42px;
+    padding: 0 24px;
+    margin-bottom: 1vh;
+    text-align: center;
+    font-weight: 800;
+}
+
+hr {
+    margin: 0 auto 2vh;
+    border: 1px solid #3B4752;
+    width: 70%;
+}
+
+.faq-content {
+    width: 50vw;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+.faq-question {
+    padding: 1vh 0;
+}
+
+.panel-title {
+    font-size: 24px;
+    width: 100%;
+    position: relative;
+    margin: 0 0 0 20px;
+    padding: 5px 10px 0 48px;
+    display: block;
+    cursor: pointer;
+}
+
+.panel-content {
+    font-size: 20px;
+    padding: 0px 5px;
+    margin: 0 20px;
+    height: 0;
+    overflow: hidden;
+    z-index: 5;
+    position: relative;
+    opacity: 0;
+    -webkit-transition: .4s ease;
+    -moz-transition: .4s ease;
+    -o-transition: .4s ease;
+    transition: .4s ease;
+}
+
+.panel:checked~.panel-content {
+    height: auto;
+    opacity: 1;
+    padding: 14px;
+}
+
+.plus {
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 4px;
+    z-index: 5;
+    font-size: 42px;
+    line-height: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -o-transition: .2s ease;
+    transition: .2s ease;
+}
+
+.panel:checked~.plus {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.panel {
+    display: none;
+}
