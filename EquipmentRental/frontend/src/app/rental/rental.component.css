@@ -1,3 +1,6 @@
+*{
+  scroll-behavior: smooth;
+}
 .equipment {
   /* margin: 20px; */
   padding: 20px;
@@ -9,6 +12,7 @@
   
 }
 .equipments {
+  width:80%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5%;
@@ -29,12 +33,7 @@
   font-weight: 600;
   margin: 10px 0;
 }
-.equipment:hover {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: 0.3s ease-out;
-  transform: scale(1.05);
-}
+
 
 /* make gray if all taken */
 .allTaken {

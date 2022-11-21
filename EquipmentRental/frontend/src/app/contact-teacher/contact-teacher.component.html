@@ -1,0 +1,64 @@
+<body>
+    <app-main-nav></app-main-nav>
+    <div class="wrapper">
+        <div class="teacher">
+            <div class="teacherName">
+                <h2>Franz Rager</h2>
+            </div>
+            <hr>
+            <div class="teacherContent">
+                <form [formGroup]="messageForm" (ngSubmit)="onSubmit(message.value)">
+                    <div>
+                        <input #message id="message" type="text" formControlName="message" placeholder="Nachricht...">
+                    </div>
+                    <button class="button" type="submit">senden</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="teacher">
+            <div class="teacherName">
+                <h2>Patricia Engleitner</h2>
+            </div>
+            <hr>
+            <div class="teacherContent">
+                <form [formGroup]="messageForm" (ngSubmit)="onSubmit(message.value)">
+                    <div>
+                        <input #message id="message" type="text" formControlName="message" placeholder="Nachricht...">
+                    </div>
+                    <button class="button" type="submit">senden</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="teacher">
+            <div class="teacherName">
+                <h2>Martin Huemer</h2>
+            </div>
+            <hr>
+            <div class="teacherContent">
+                <form [formGroup]="messageForm" (ngSubmit)="onSubmit(message.value)">
+                    <div>
+                        <input #message id="message" type="text" formControlName="message" placeholder="Nachricht...">
+                    </div>
+                    <button class="button" type="submit">senden</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="teacher">
+            <div class="teacherName">
+                <h2>Erich Baar</h2>
+            </div>
+            <hr>
+            <div class="teacherContent">
+                <form [formGroup]="messageForm" (ngSubmit)="onSubmit(message.value)">
+                    <div>
+                        <input #message id="message" type="text" formControlName="message" placeholder="Nachricht...">
+                    </div>
+                    <button class="button" type="submit">senden</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

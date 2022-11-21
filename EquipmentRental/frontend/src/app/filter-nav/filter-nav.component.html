@@ -1,0 +1,45 @@
+<nav>
+  <div class="row">
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Typ</mat-label>
+        <mat-select [(value)]="type" (selectionChange)="refreshFilter()">
+          <mat-option *ngFor="let type of typeFilter" [value]="type">{{type}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Marke</mat-label>
+        <mat-select [(value)]="brand" (selectionChange)="refreshFilter()">
+          <mat-option *ngFor="let brand of brandFilter" [value]="brand">{{brand}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row">
+      <mat-form-field>
+        <mat-label>date</mat-label>
+        <input matInput [matDatepicker]="dpicker" [(ngModel)]="brand"  (dateChange)="refreshFilter()">
+        <mat-datepicker-toggle matSuffix [for]="dpicker"></mat-datepicker-toggle>
+        <mat-datepicker #dpicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+  <div class="row">
+    <mat-form-field appearance="fill" onchange="refreshFilter()">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="range"[rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+</div>
+
+</nav>
