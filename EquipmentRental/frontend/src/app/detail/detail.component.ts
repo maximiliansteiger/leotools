@@ -20,6 +20,8 @@ export class DetailComponent implements OnInit {
   availableEquipment!: number;
   startDate!: Date | null | undefined;
   endDate!: Date | null | undefined;
+  quantity=1;
+
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
@@ -65,6 +67,8 @@ export class DetailComponent implements OnInit {
 
   getImageByEquipment(et: String) {
     let imageURL = "../../assets/img/";
+    let imageURL2 = '../../assets/img/video.png';
+
     switch (et) {
       case "Zoom H2n":
         imageURL += "zoom.png"
@@ -82,7 +86,7 @@ export class DetailComponent implements OnInit {
         imageURL += "err.png"
         break;
     }
-    return imageURL;
+    return imageURL2;
   }
 
 

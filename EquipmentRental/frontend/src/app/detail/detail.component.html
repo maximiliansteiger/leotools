@@ -16,27 +16,26 @@
         <img class="eqImg" [src]="getImageByEquipment(activeEquipment.EquipmentType.name)">
 
         <div class="info">
-            <h2 class="eqName">Name:{{activeEquipment.name}}</h2>
+            <h2 class="eqName">{{activeEquipment.name}}</h2>
             <h5 class="eqAvailable">verfügbar: {{availableEquipment}}</h5>
 
-            <h1>Anzahl:</h1>
-            <input type="number" min="1" [max]="availableEquipment" value="1">
+
 
             <div class="datepickers">
-                <mat-form-field appearance="fill" >
+                <mat-form-field>
                     <mat-label>Enter a date range</mat-label>
-                    <mat-date-range-input [formGroup]="range"[rangePicker]="picker">
-                      <input matStartDate formControlName="start" placeholder="Start date">
-                      <input matEndDate formControlName="end" placeholder="End date">
+                    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                        <input matStartDate formControlName="start" placeholder="Start date">
+                        <input matEndDate formControlName="end" placeholder="End date">
                     </mat-date-range-input>
                     <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-date-range-picker #picker></mat-date-range-picker>
-                  </mat-form-field>
+                </mat-form-field>
             </div>
 
-            <button [disabled]="range!.value.end==undefined || range!.value.start==undefined"
-            class="filterButton" mat-stroked-button color="basic" (click)="rent()">Reservieren</button>
+            <button [disabled]="range!.value.end==undefined || range!.value.start==undefined" class="filterButton"
+                mat-stroked-button color="basic" (click)="rent()">Reservieren</button>
 
         </div>
     </div>

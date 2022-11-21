@@ -30,7 +30,6 @@ import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MerklisteComponent } from './merkliste/merkliste.component';
 import { ContactTeacherComponent } from './contact-teacher/contact-teacher.component';
-
 @NgModule({
   declarations: [
     AppComponent,
