@@ -4,6 +4,7 @@ import { Equipment } from '../models/equipment';
 import { EquipmentType } from '../models/equipmentType';
 import { DetailService } from '../services/detail.service';
 import { HttpService } from '../services/http.service';
+import { Form, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-rental',
@@ -16,6 +17,13 @@ export class RentalComponent implements OnInit {
   equipmentNamesMap!: Map<String, number>;
   equipmentNamesArray!: String[];
   equipmentTypes!: EquipmentType[];
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
+  type = new FormControl('');
+  brand= new FormControl('');
+  brandFilter = ["Canon", "Nikon", "Zoom"];
 
   constructor(
     private http: HttpService,
@@ -24,7 +32,6 @@ export class RentalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.equipmentTypesMap = new Map<String, number>();
     this.equipmentNamesMap = new Map<String, number>();
     this.equipmentNamesArray = [];
@@ -32,14 +39,13 @@ export class RentalComponent implements OnInit {
     this.http.getAllEquipmentTypes().subscribe((data) => {
       this.equipmentTypes = data;
       console.log(this.equipmentTypes);
-
     });
 
     this.http.getAllEquipments().subscribe((data) => {
       this.equipments = data;
       console.log(this.equipments);
 
-      this.setEquipmentNamesMap();
+      this.setEquipmentNamesMap(this.equipments);
 
       this.equipments.sort((a, b) =>
         a.EquipmentType.name.localeCompare(b.EquipmentType.name)
@@ -47,11 +53,9 @@ export class RentalComponent implements OnInit {
     });
   }
 
- 
-
-
   getImageByEquipment(et: String) {
     let imageURL = '../../assets/img/';
+    let imageURL2 = '../../assets/img/video.png';
     switch (et) {
       case 'Zoom H2n':
         imageURL += 'zoom.png';
@@ -69,7 +73,7 @@ export class RentalComponent implements OnInit {
         imageURL += 'err.png';
         break;
     }
-    return imageURL;
+    return imageURL2;
   }
 
   redirectDetail(equipmentName: any) {
@@ -85,14 +89,19 @@ export class RentalComponent implements OnInit {
     this.equipments.forEach((equipment) => {
       if (equipment.name == equipmentName) {
         eqtype = equipment;
-        
       }
     });
     return eqtype;
   }
 
-  setEquipmentNamesMap() {
-    this.equipments.forEach((equipment) => {
+  setEquipmentNamesMap(equipment1: Equipment[]) {
+    console.log("aaaaaa");
+    
+    console.log(equipment1);
+    // TODO WIRD NU GLEICH ANZEIGT DE MAP
+    this.equipmentNamesMap.clear;
+    this.equipmentNamesArray.pop;
+    equipment1.forEach((equipment) => {
       if (equipment.status == "Available") {
         let num = this.equipmentNamesMap?.get(equipment.name);
         if (num) {
@@ -106,5 +115,27 @@ export class RentalComponent implements OnInit {
     console.log(this.equipmentNamesMap);
   }
 
+  refreshFilter(){
+    let equipmentFiltered = this.filterEquipment();
+    console.log(equipmentFiltered);
+    
+    this.setEquipmentNamesMap(equipmentFiltered);
+  }
+
+  filterEquipment(){ 
+    let equipmentFiltered: Equipment[] = [];
+    // TODO OTHER FILTERS
+     if(this.type.value?.[0] != undefined){
+      this.equipments?.forEach(e => {
+        for(let i = 0; i < 4; i++){
+          if(this.type.value?.[i] != undefined){
+         if(e.EquipmentType.name == this.type.value?.[i]){
+          console.log("s");
+           equipmentFiltered.push(e);
+         }}}});
+     }
+     return equipmentFiltered; 
+  }
 
 }
+

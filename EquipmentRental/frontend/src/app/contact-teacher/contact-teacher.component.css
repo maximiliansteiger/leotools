@@ -1,0 +1,45 @@
+body {
+    background-image: url("../../assets/img/background.png");
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+.wrapper {
+    width: 80vw;
+    height: auto;
+    margin: 0 auto;
+}
+
+.teacher {
+    padding: 0 0 8vh;
+}
+
+.teacherName {
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #3b4752;
+}
+
+hr {
+    margin: 0 auto .5vh;
+    border: 1px solid #839db6;
+    width: 10vw;
+}
+
+.teacherContent {
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #839db6;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}

@@ -1,23 +1,39 @@
+*{
+  scroll-behavior: smooth;
+}
+body{
+  height: 560vh;
+}
 .equipment {
   /* margin: 20px; */
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   min-width: 100%;
   text-align: center;
-  margin-left: 5%;
-  
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.equipment:hover{
+  cursor: pointer;
+}
+.equipment h3{
+  font-size: 1.25em;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: black;
 }
 .equipments {
+  width:85%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5%;
+  grid-gap: 2%;
   margin: 20px;
-  margin-left: 2.5%;
-  margin-right: 4.5%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  margin-top:5%;
 }
 .eqImg {
-  width: 100px;
+  width: 7.5vw;
   height: auto;
   object-fit: cover;
   display: flex;
@@ -28,13 +44,10 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin: 10px 0;
+  border-top: 2px solid #a1bfdb;
+  padding-top:10px;
 }
-.equipment:hover {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: 0.3s ease-out;
-  transform: scale(1.05);
-}
+
 
 /* make gray if all taken */
 .allTaken {
