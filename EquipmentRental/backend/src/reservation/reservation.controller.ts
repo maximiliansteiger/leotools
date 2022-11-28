@@ -3,7 +3,7 @@ import { ReservationService } from './reservation.service';
 import { CreateReservationDto } from './dto/create-reservation.dto';
 import { UpdateReservationDto } from './dto/update-reservation.dto';
 
-@Controller('reservation')
+@Controller('reservations')
 export class ReservationController {
   constructor(private readonly reservationService: ReservationService) {}
 
@@ -12,7 +12,7 @@ export class ReservationController {
     return this.reservationService.create(createReservationDto);
   }
 
-  @Get()
+  @Get("getAll")
   findAll() {
     return this.reservationService.findAll();
   }

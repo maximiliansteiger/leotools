@@ -110,19 +110,19 @@ export class HttpService {
   // ---- STATUS ----
 
   public getAllStatuses(): Observable<any> {
-    return this.http.get(this.baseUrl + "/states/getAll");
+    return this.http.get(this.baseUrl + "/status/getAll");
   }
   public getStatusById(id: number): Observable<any> {
-    return this.http.get(this.baseUrl + "/states/get/" + id);
+    return this.http.get(this.baseUrl + "/status/get/" + id);
   }
   public createStatus(status: any): Observable<any> {
-    return this.http.post(this.baseUrl + "/states/create", status);
+    return this.http.post(this.baseUrl + "/status/create", status);
   }
   public updateStatus(status: any): Observable<any> {
-    return this.http.put(this.baseUrl + "/states/update/" + status.id, status);
+    return this.http.put(this.baseUrl + "/status/update/" + status.id, status);
   }
   public deleteStatus(status: any): Observable<any> {
-    return this.http.delete(this.baseUrl + "/states/delete/" + status.id);
+    return this.http.delete(this.baseUrl + "/status/delete/" + status.id);
   }
 
   // ---- RESERVATION ----

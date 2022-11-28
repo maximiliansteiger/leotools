@@ -12,7 +12,7 @@ export class StatusController {
     return this.statusService.create(createStatusDto);
   }
 
-  @Get()
+  @Get("getAll")
   findAll() {
     return this.statusService.findAll();
   }

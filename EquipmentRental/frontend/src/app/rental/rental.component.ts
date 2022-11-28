@@ -22,7 +22,7 @@ export class RentalComponent implements OnInit {
     end: new FormControl<Date | null>(null),
   });
   type = new FormControl('');
-  brand= new FormControl('');
+  brand = new FormControl('');
   brandFilter = ["Canon", "Nikon", "Zoom"];
 
   constructor(
@@ -38,7 +38,7 @@ export class RentalComponent implements OnInit {
 
     this.http.getAllEquipmentTypes().subscribe((data) => {
       this.equipmentTypes = data;
-      console.log(this.equipmentTypes);
+      // console.log(this.equipmentTypes);
     });
 
     this.http.getAllEquipments().subscribe((data) => {
@@ -95,46 +95,51 @@ export class RentalComponent implements OnInit {
   }
 
   setEquipmentNamesMap(equipment1: Equipment[]) {
-    console.log("aaaaaa");
-    
-    console.log(equipment1);
     // TODO WIRD NU GLEICH ANZEIGT DE MAP
     this.equipmentNamesMap.clear;
-    this.equipmentNamesArray.pop;
+    if (equipment1.length != 0) {
+      this.equipmentNamesArray = [];
+    }
     equipment1.forEach((equipment) => {
       if (equipment.status == "Available") {
         let num = this.equipmentNamesMap?.get(equipment.name);
         if (num) {
           this.equipmentNamesMap.set(equipment.name, num + 1);
-        } else {
           this.equipmentNamesArray.push(equipment.name);
+        } else {
+          // this.equipmentNamesArray.push(equipment.name);
           this.equipmentNamesMap.set(equipment.name, 1);
         }
       }
     });
+    //make array unique
+    this.equipmentNamesArray = Array.from(new Set(this.equipmentNamesArray));
+
     console.log(this.equipmentNamesMap);
   }
 
-  refreshFilter(){
+  refreshFilter() {
     let equipmentFiltered = this.filterEquipment();
     console.log(equipmentFiltered);
-    
     this.setEquipmentNamesMap(equipmentFiltered);
   }
 
-  filterEquipment(){ 
+  filterEquipment() {
     let equipmentFiltered: Equipment[] = [];
     // TODO OTHER FILTERS
-     if(this.type.value?.[0] != undefined){
+    if (this.type.value?.[0] != undefined) {
       this.equipments?.forEach(e => {
-        for(let i = 0; i < 4; i++){
-          if(this.type.value?.[i] != undefined){
-         if(e.EquipmentType.name == this.type.value?.[i]){
-          console.log("s");
-           equipmentFiltered.push(e);
-         }}}});
-     }
-     return equipmentFiltered; 
+        for (let i = 0; i < 4; i++) {
+          if (this.type.value?.[i] != undefined) {
+            if (e.EquipmentType.name == this.type.value?.[i]) {
+              console.log("s");
+              equipmentFiltered.push(e);
+            }
+          }
+        }
+      });
+    }
+    return equipmentFiltered;
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { reservation } from '../models/reservation';
+import { Reservation } from '../models/reservation';
 import { Equipment } from '../models/equipment';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-reservation',
@@ -10,15 +11,56 @@ import { Equipment } from '../models/equipment';
 export class ReservationComponent implements OnInit {
 
 
-  reservations: reservation[] =  [];
+  reservations: Reservation[] = [];
   equipments!: Equipment[];
+  states!: any[];
 
-  constructor() { }
+
+  constructor(private http: HttpService) { }
 
   ngOnInit(): void {
+
+    this.http.getAllStatuses().subscribe((res: any) => {
+      this.states = res;
+      console.log(this.states);
+    });
+
+    this.http.getAllReservations().subscribe((res: any) => {
+      this.reservations = res;
+      console.log(this.reservations);
+    });
+
+    this.http.getAllEquipments().subscribe((res: any) => {
+      this.equipments = res;
+      console.log(this.equipments);
+    });
   }
 
-  delete(){
+
+  equipmentNameOfReservation(equipmentId: number): string {
+    return this.equipments.find(e => e.id == equipmentId)?.name || '';
+  }
+
+  getStatusById(id: any): string | void {
+
+    let state = this.states.find(s => s.id == id)?.name;
+
+    switch (state) {
+      case "pending":
+        return "🟡pending...";
+      case "accepted":
+        return "🟢accepted";
+      case "declined":
+        return "🔴declined";
+      default:
+        return "🟡pending...";
+    }
+  }
+
+
+
+
+  delete() {
     alert("Delete works")
   }
 

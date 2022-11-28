@@ -1,4 +1,4 @@
-export type reservation = {
+export type Reservation = {
     id: number,
     userId: number,
     equipmentId: number,
