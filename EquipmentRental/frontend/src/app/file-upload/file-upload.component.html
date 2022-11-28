@@ -1,8 +1,12 @@
-<div *ngFor="let progressInfo of progressInfos" class="mb-2">
-    <span>{{ progressInfo.fileName }}</span>
-</div>
+<div class="centerDiv">
 
-<label class="btn btn-default">
+    <h1>File Upload</h1>
+    
+    <div *ngFor="let progressInfo of progressInfos" class="mb-2">
+        <span>{{ progressInfo.fileName }}</span>
+    </div>
+    
+    <label class="btn btn-default">
     <input type="file" multiple (change)="selectFiles($event)" />
 </label>
 
@@ -10,12 +14,14 @@
     Upload
 </button>
 
-
 <div class="card">
+    
     <div class="card-header">List of Files</div>
     <ul class="list-group list-group-flush" *ngFor="let file of fileInfos | async">
         <li class="list-group-item">
             <a href="{{ file.url }}">{{ file.name }}</a>
         </li>
     </ul>
+</div>
+
 </div>

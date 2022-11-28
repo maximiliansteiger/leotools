@@ -1,0 +1,15 @@
+.centerDiv{
+    height: 100%;
+    margin: 20px;
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    /* background-color: gray; */
+}
+
+
+h1{
+    text-align: center;
+    color: black;
+    font-size: 15vh;
+}

@@ -135,7 +135,7 @@ export function getFullTypeName(name: any): any {
     case 'S':
       return 'Stativ';
     case 'PVS':
-      return 'PVS';
+      return 'Professionelles Videosystem';
     case 'SS':
       return 'Schwebestativ';
     case 'LV':
@@ -144,6 +144,8 @@ export function getFullTypeName(name: any): any {
       return 'Videoobjektiv';
     case 'VZ':
       return 'Videozubehör';
+      case 'VL':
+      return 'Videolicht';
     default:
       return name;
   }
