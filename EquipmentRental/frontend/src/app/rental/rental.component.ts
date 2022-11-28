@@ -45,17 +45,15 @@ export class RentalComponent implements OnInit {
       this.equipments = data;
       console.log(this.equipments);
 
-      this.setEquipmentNamesMap(this.equipments);
+      this.refreshFilter();
 
-      this.equipments.sort((a, b) =>
-        a.EquipmentType.name.localeCompare(b.EquipmentType.name)
-      );
+
     });
   }
 
   getImageByEquipment(et: String) {
     let imageURL = '../../assets/img/';
-    let imageURL2 = '../../assets/img/video.png';
+    let imageURL2 = '../../assets/img/Sony_6100.png';
     switch (et) {
       case 'Zoom H2n':
         imageURL += 'zoom.png';
@@ -95,8 +93,8 @@ export class RentalComponent implements OnInit {
   }
 
   setEquipmentNamesMap(equipment1: Equipment[]) {
-    // TODO WIRD NU GLEICH ANZEIGT DE MAP
-    this.equipmentNamesMap.clear;
+    this.equipmentNamesMap = new Map<String, number>();
+
     if (equipment1.length != 0) {
       this.equipmentNamesArray = [];
     }
@@ -107,25 +105,29 @@ export class RentalComponent implements OnInit {
           this.equipmentNamesMap.set(equipment.name, num + 1);
           this.equipmentNamesArray.push(equipment.name);
         } else {
-          // this.equipmentNamesArray.push(equipment.name);
+          //  this.equipmentNamesArray.push(equipment.name);
           this.equipmentNamesMap.set(equipment.name, 1);
         }
       }
     });
     //make array unique
     this.equipmentNamesArray = Array.from(new Set(this.equipmentNamesArray));
+    // console.log(this.equipmentNamesArray);
 
-    console.log(this.equipmentNamesMap);
   }
 
   refreshFilter() {
     let equipmentFiltered = this.filterEquipment();
     console.log(equipmentFiltered);
     this.setEquipmentNamesMap(equipmentFiltered);
+
   }
 
   filterEquipment() {
     let equipmentFiltered: Equipment[] = [];
+    if (this.type.value?.[0] == undefined) {
+      equipmentFiltered = this.equipments;
+    }
     // TODO OTHER FILTERS
     if (this.type.value?.[0] != undefined) {
       this.equipments?.forEach(e => {
@@ -140,6 +142,7 @@ export class RentalComponent implements OnInit {
       });
     }
     return equipmentFiltered;
+
   }
 
 }

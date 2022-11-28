@@ -10,20 +10,20 @@
 
 <body>  
   <nav>
-    <mat-form-field >
+    <mat-form-field  >
       <mat-label>Typ</mat-label>
       <mat-select (selectionChange)="refreshFilter()" [formControl]="type" multiple>
         <mat-option *ngFor="let type of equipmentTypes" [value]="type.name">{{type.name}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="filterField">
       <mat-label>Marke</mat-label>
       <mat-select (selectionChange)="refreshFilter()" [formControl]="brand" multiple>
         <mat-option *ngFor="let brand of brandFilter" [value]="brand">{{brand}}</mat-option>
       </mat-select>
     </mat-form-field>
   
-      <mat-form-field (dateChange)="refreshFilter()">
+      <mat-form-field (dateChange)="refreshFilter()" class="filterField">
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [formGroup]="range"[rangePicker]="picker">
           <input matStartDate formControlName="start" placeholder="Start date">
@@ -35,19 +35,22 @@
       </mat-form-field>
   </nav>
 
-  <div class="rentals">
     <div class="equipments">
       <div (click)="redirectDetail(eq)" class="equipment" [ngClass]="{'allTaken':!equipmentNamesMap.get(eq)}"
         *ngFor="let eq of equipmentNamesArray">
-        <img class="eqImg" [src]="getImageByEquipment(eq[0])">
-        <h3 class="eqName">{{eq}}</h3>
-        <h5 [ngClass]="{'available':!equipmentNamesMap.get(eq)}">
-          {{equipmentNamesMap.get(eq) ? "verfügbar: " + equipmentNamesMap.get(eq) :"nicht verfügbar"}}
-
-        </h5>
+        <div class="img">
+          <img class="eqImg" [src]="getImageByEquipment(eq[0])">
+        </div>
+        <div class="title">
+            <h3 class="eqName">{{eq}}</h3>
+              <h5 [ngClass]="{'available':!equipmentNamesMap.get(eq)}" style="font-size:0.75em;">
+                {{equipmentNamesMap.get(eq) ? "verfügbar: " + equipmentNamesMap.get(eq) :"nicht verfügbar"}}
+              </h5>
+        </div>
+        
       </div>
-    </div>
   </div>
+  
 </body>
 
 </html>

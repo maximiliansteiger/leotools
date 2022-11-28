@@ -2,30 +2,37 @@
   scroll-behavior: smooth;
 }
 body{
-  height: 560vh;
+  height: 425vh;
 }
 .equipment {
-  /* margin: 20px; */
-  padding: 20px;
-  min-width: 100%;
+  width:15vw;
+  height: 35vh;
   text-align: center;
   font-family: 'Poppins', sans-serif;
+  box-shadow: 0px 0px 2.5px #8ea9c2;
+  border-radius: 5px;
+  text-align: left;
+  position: relative;
 }
-
+.title{
+  position: absolute;
+  bottom:0;
+  padding:20px;
+}
 
 .equipment:hover{
   cursor: pointer;
 }
 .equipment h3{
-  font-size: 1.25em;
-  font-weight: 600;
+  font-size: 2vh;
+  font-weight: 500;
   font-family: 'Poppins', sans-serif;
   color: black;
 }
 .equipments {
   width:85%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 2%;
   margin: 20px;
   margin-left: 7.5%;
@@ -33,18 +40,17 @@ body{
   margin-top:5%;
 }
 .eqImg {
-  width: 7.5vw;
+  width: 8vw;
   height: auto;
   object-fit: cover;
   display: flex;
   margin: 0 auto;
   /* outline: 5px solid #ccc; */
+
 }
 .eqName {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 600;
-  margin: 10px 0;
-  border-top: 2px solid #a1bfdb;
   padding-top:10px;
 }
 
@@ -61,9 +67,6 @@ body{
 }
 .allTaken img {
   filter: grayscale(100%);
-}
-.available {
-  color: rgb(238, 93, 93);
 }
 
 a {
@@ -82,4 +85,12 @@ a:hover {
     text-align: center;
     margin-left: 5%;
     margin-right: 5%;
+}
+
+nav{
+  margin-left: 7.5%;
+  margin-top: 2%;
+}
+.filterField{
+  margin-left: 3%;
 }
