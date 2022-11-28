@@ -22,7 +22,31 @@
                     <h3>Sony alpha 6100</h3>
                 </div>
                 <div class="status">
-                    <h4>pending...</h4>
+                    <h4>🟡pending...</h4>
+                </div>
+                <div class="options">
+                    <div class="group inline-block">
+                        <button class="outline-none focus:outline-none border bg-white rounded-sm flex items-center min-w-32">
+                          <span><img src="../../assets/img/threeDots.png"></span>
+                        </button>
+                        <ul class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+                        transition duration-150 ease-in-out origin-top min-w-32">
+                            <li [routerLink]="['/detail']" class="rounded-sm hover:bg-gray-100"><a>Bearbeiten</a></li>
+                            <li (click)="delete()" class="rounded-sm hover:bg-gray-100"  class="deleteLi"><a>Löschen</a></li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+
+              <div class="box">
+                <div class="image">
+                    <img src="../../assets/img/Stativ.png">
+                </div>
+                <div class="title">
+                    <h3>Ulanzi ZeroY Stativ</h3>
+                </div>
+                <div class="status">
+                    <h4>🟢accepted</h4>
                 </div>
                 <div class="options">
                     <div class="group inline-block">
@@ -46,7 +70,7 @@
                     <h3>Canon_Eos_850D</h3>
                 </div>
                 <div class="status">
-                    <h4>pending...</h4>
+                    <h4>🔴declined</h4>
                 </div>
                 <div class="options">
                     <div class="group inline-block">

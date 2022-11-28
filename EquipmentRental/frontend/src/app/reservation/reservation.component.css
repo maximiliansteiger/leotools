@@ -10,6 +10,10 @@
     font-weight: 800;
     font-family: 'Poppins', sans-serif;
 }
+h3{
+    font-weight:bold;
+    font-size: 0.75em;
+}
 
 .box {  display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -28,6 +32,9 @@
     border: 2px solid rgb(255, 255, 255);
     margin: 2vh auto 0;
     font-size: 1.5em;
+}
+ul{
+    margin:-5.15vw 0 0 3.75vw; 
 }
   
 .options { 
@@ -50,6 +57,9 @@
 li{
     padding: 10px 20px;
     text-align: center;
+    width:100%;
+    margin-left:-0.025vw;
+    border-radius: 1px;
 }
 
 li:hover{
@@ -69,6 +79,7 @@ li:hover{
     justify-content: center;
     align-items: center;
     font-size: 0.7em;
+    /* color:black; */
 }
   
 .title { 
