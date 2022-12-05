@@ -31,6 +31,12 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MerklisteComponent } from './merkliste/merkliste.component';
 import { ContactTeacherComponent } from './contact-teacher/contact-teacher.component';
 import { EquipmentManagerComponent } from './equipment-manager/equipment-manager.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatRadioModule} from "@angular/material/radio";
+
+import { CdkTableModule} from '@angular/cdk/table';
+import {DataSource} from '@angular/cdk/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +56,8 @@ import { EquipmentManagerComponent } from './equipment-manager/equipment-manager
     ContactUsComponent,
     MerklisteComponent,
     ContactTeacherComponent,
-    EquipmentManagerComponent
+    EquipmentManagerComponent,
+
     ],
   imports: [
     BrowserModule,
@@ -70,6 +77,10 @@ import { EquipmentManagerComponent } from './equipment-manager/equipment-manager
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    CdkTableModule
+
     ],
   exports: [
 

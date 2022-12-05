@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
 
-export interface PeriodicElement {
+export interface EquipmentDTO {
+  EquipmentType: any;
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  notes: string;
+  set: string;
 }
 
 @Component({
@@ -15,13 +15,17 @@ export interface PeriodicElement {
 })
 export class EquipmentManagerComponent implements OnInit {
 
+  displayedColumns: string[] = ['equipmentType', 'name', 'notes', 'set', "button"];
+  dataSource: EquipmentDTO[] = [];
   constructor(private http: HttpService) { }
 
   ngOnInit(): void {
-
     this.http.getAllEquipments().subscribe((data) => {
       console.log(data);
+
+      this.dataSource = data;
     });
   }
-
 }
+
+
