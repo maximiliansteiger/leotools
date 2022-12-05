@@ -67,7 +67,7 @@ export class DetailComponent implements OnInit {
 
   getImageByEquipment(et: String) {
     let imageURL = "../../assets/img/";
-    let imageURL2 = '../../assets/img/video.png';
+    let imageURL2 = '../../assets/img/Sony_6100.png';
 
     switch (et) {
       case "Zoom H2n":
