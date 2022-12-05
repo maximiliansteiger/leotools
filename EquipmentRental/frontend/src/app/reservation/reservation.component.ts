@@ -57,9 +57,6 @@ export class ReservationComponent implements OnInit {
     }
   }
 
-
-
-
   delete() {
     alert("Delete works")
   }
