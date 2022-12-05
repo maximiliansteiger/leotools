@@ -2,7 +2,7 @@
   scroll-behavior: smooth;
 }
 body{
-  height: 425vh;
+  height: 390vh;
 }
 .equipment {
   width:15vw;
@@ -33,7 +33,7 @@ body{
   width:85%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 2%;
+  grid-gap: 4vh;
   margin: 20px;
   margin-left: 7.5%;
   margin-right: 7.5%;

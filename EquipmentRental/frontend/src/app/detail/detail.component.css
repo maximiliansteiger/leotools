@@ -1,40 +1,43 @@
 *{
     font-family: 'Poppins', sans-serif;
 }
+body{
+}
 .eqName{
     font-size: 1.5rem;
     font-weight: 600;
-    margin: 10px 0;
-    padding-top:10px;
 }
 .eqImg{
-    width: 400px;
+    width: 20vw;
     height: auto;
     object-fit: cover;
     display: flex;
-    margin: 0 auto;
+    margin: 0;
     /* outline: 5px solid #ccc; */
     position: relative;
-    top:25vh;
-    right: 20vw;
-    padding-right: 4vw;
-    border-right: 2px solid #b1b6cd;
+    /* top:25vh;
+    right: 20vw; */
+    /* padding-right: 4vw; */
+    border-right: 3px solid #b1b6cd;
+    padding-right:4vw;
 
 }
 .info{
-    margin: 20px;
-    padding: 20px;
     border-radius: 4px;
     width:25%;
     text-align: left;
     margin-left:5%;
-    position: relative;
-    right: -40vw;
-    top: -25vh;
+    /* position: relative; */
+    /* right: -40vw;
+    top: -25vh; */
 }
 .content{
-    position: relative;
-    bottom:10vh;
+    /* position: relative; */
+    /* bottom:10vh; */
+    height:80vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 a {
@@ -46,12 +49,10 @@ a {
   }
 .datepickers{
     position: relative;
-    width: 50%;
-    height: 50%;
     border-radius: 4px;
-    margin: 20%;
-    margin-left:0%;
     text-align: left;
+    margin-top:5%;
+    
 }
 .filterButton{
     margin-top:5%;
