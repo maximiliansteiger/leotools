@@ -45,7 +45,7 @@ export class BookmarksService {
   findByUser(id: number) {
     return prisma.bookmarks.findMany({
       where: {
-        userId: id
+        userId: +id
       },
     });
   }
