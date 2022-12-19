@@ -53,6 +53,7 @@ model equipment {
   notes           String?       @db.VarChar(100)
   EquipmentType   equipmentType @relation(fields: [equipmentTypeId], references: [id])
   reservation     reservation[]
+  bookmarks       bookmarks[]
 
   @@index([equipmentTypeId], map: "equipmentTypeId")
 }
@@ -71,4 +72,15 @@ model status {
   id          Int           @id @default(autoincrement())
   name        String        @unique
   reservation reservation[]
+}
+
+model bookmarks {
+  id          Int @id @default(autoincrement())
+  userId      Int @map("user_id")
+  equipmentId Int @map("equipment_id")
+
+  equipment equipment @relation(fields: [equipmentId], references: [id])
+
+  @@index([userId], map: "userId")
+  @@index([equipmentId], map: "equipmentId")
 }
