@@ -14,19 +14,4 @@ export class UploadComponent implements OnInit {
   }
 
 
-  download() {
-    //get the equipments from the backend equiptments/getAll and download them as a csv file
-    this.http.getAllEquipments().subscribe((data: any) => {
-      let csvData = this.ConvertToCSV(data, ['id', 'set', 'name', 'equipmentTypeId', 'status', 'serialNumber', 'notes', 'anlagenummer']);
-      let a = document.createElement("a");
-      document.body.appendChild(a);
-      a.style.display = "none";
-      let blob = new Blob([csvData], { type: "octet/stream" }),
-        url = window.URL.createObjectURL(blob);
-      a.href, url;
-      a.download = "equipments.csv";
-      a.click();
-      window.URL.revokeObjectURL(url);
-    });
-  }
 }

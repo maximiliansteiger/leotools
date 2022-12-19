@@ -14,6 +14,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MerklisteComponent } from './merkliste/merkliste.component';
 import { ContactTeacherComponent } from './contact-teacher/contact-teacher.component';
 import { EquipmentManagerComponent } from './equipment-manager/equipment-manager.component';
+import { TeacherOverviewReservationComponent } from './teacher-overview-reservation/teacher-overview-reservation.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,10 @@ const routes: Routes = [
   {
     path: 'equipment-manager',
     component: EquipmentManagerComponent,
+  },
+  {
+    path: 'teacher-overview',
+    component: TeacherOverviewReservationComponent
   },
   {
     path: '**',
