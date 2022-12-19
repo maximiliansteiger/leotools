@@ -42,7 +42,7 @@
       <div (click)="redirectDetail(eq)" class="equipment" [ngClass]="{'allTaken':!equipmentNamesMap.get(eq)}"
         *ngFor="let eq of equipmentNamesArray">
         <div class="img">
-          <img class="bookmark" src="../../assets/img/bookmark.png" alt="bookmark">
+          <img class="bookmark" src="../../assets/img/bookmark.png" (click)="editBookmark(eq)" alt="bookmark">
           <img class="eqImg" [src]="getImageByEquipment(eq[0])">
         </div>
         <div class="title">
