@@ -2,7 +2,7 @@
   scroll-behavior: smooth;
 }
 body{
-  height: 390vh;
+  height: fit-content;
 }
 .equipment {
   width:15vw;
@@ -52,6 +52,15 @@ body{
   font-size: 1.5em;
   font-weight: 600;
   padding-top:10px;
+}
+.bookmark{
+  position:absolute;
+  width: 1.5vw;
+  float:right;
+  height: auto;
+  object-fit: cover;
+  display: flex;
+  margin-left: 5%;
 }
 
 
