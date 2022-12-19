@@ -29,13 +29,15 @@
     "@prisma/client": "^4.5.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "exceljs": "^4.3.0",
     "helmet": "^6.0.0",
     "ldap-authentication": "^2.3.2",
     "passport": "^0.6.0",
     "passport-ldapauth": "^3.0.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "temp": "^0.9.4"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",

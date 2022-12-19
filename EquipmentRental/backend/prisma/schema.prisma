@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env(DATABASE_URL)
+  url      = env("DATABASE_URL")
 }
 
 model user {
@@ -47,7 +47,7 @@ model equipment {
   set             String        @map("set")
   name            String
   equipmentTypeId Int           @map("equipment_type_id")
-  status          String?       @db.VarChar(100) @map("status") @default("Available")
+  status          String?       @default("Available") @map("status") @db.VarChar(100)
   anlagenummer    String?       @map("anlagenummer") @db.VarChar(100)
   serialNumber    String?       @map("serial_number") @db.VarChar(100)
   notes           String?       @db.VarChar(100)
@@ -58,10 +58,10 @@ model equipment {
 }
 
 model equipmentType {
-  id                Int               @id @default(autoincrement())
-  name              String           @db.VarChar(100) 
-  description       String
-  Equipment         equipment[]
+  id          Int         @id @default(autoincrement())
+  name        String      @db.VarChar(100)
+  description String
+  Equipment   equipment[]
 
   @@unique([name], map: "equipmentType_name_key")
   @@map("equipment_type")

@@ -46,12 +46,12 @@ export class ReservationComponent implements OnInit {
     let state = this.states.find(s => s.id == id)?.name;
 
     switch (state) {
-      case "pending":
-        return "🟡pending...";
-      case "accepted":
-        return "🟢accepted";
-      case "declined":
-        return "🔴declined";
+      case "reserviert":
+        return `🟡 ${state} `;
+      case "ausgeborgt":
+        return `🟢 ${state} `;
+      case "abgelehnt":
+        return `🔴 ${state} `;
       default:
         return "🟡pending...";
     }

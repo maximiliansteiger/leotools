@@ -65,11 +65,16 @@ export class HttpService {
   public getEquipmentByType(id: number): Observable<any> {
     return this.http.get(this.baseUrl + "/equipments/getByTypeId/" + id);
   }
-  
+
 
   getFiles(): Observable<any> {
     return this.http.get(`${this.baseUrl}/equipments/getUploadedFiles`);
   }
+
+  downloadCsv(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/equipments/download`, { responseType: 'blob' });
+  }
+
 
   // ---- EQUIPMENT TYPE ----
 

@@ -36,6 +36,7 @@ import {MatRadioModule} from "@angular/material/radio";
 
 import { CdkTableModule} from '@angular/cdk/table';
 import {DataSource} from '@angular/cdk/table';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import {DataSource} from '@angular/cdk/table';
     MerklisteComponent,
     ContactTeacherComponent,
     EquipmentManagerComponent,
+    UploadComponent,
 
     ],
   imports: [
