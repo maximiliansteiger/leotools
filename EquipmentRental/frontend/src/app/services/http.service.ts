@@ -147,4 +147,26 @@ export class HttpService {
   public deleteReservation(reservation: any): Observable<any> {
     return this.http.delete(this.baseUrl + "/reservations/delete/" + reservation.id);
   }
+
+  // ---- BOOKMARKS ----
+
+  public getAllBookmarks(): Observable<any> {
+    return this.http.get(this.baseUrl + "/bookmarks/getAll");
+  }
+  public getBookmarkById(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + "/bookmarks/get/" + id);
+  }
+  public createBookmark(bookmark: any): Observable<any> {
+    return this.http.post(this.baseUrl + "/bookmarks/create", bookmark);
+  }
+  public updateBookmark(bookmark: any): Observable<any> {
+    return this.http.put(this.baseUrl + "/bookmarks/update/" + bookmark.id, bookmark);
+  }
+  public deleteBookmark(bookmark: any): Observable<any> {
+    return this.http.delete(this.baseUrl + "/bookmarks/delete/" + bookmark.id);
+  }
+  public getBookmarkByUserId(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + "/bookmarks/getByUserId/" + id);
+  }
+
 }

@@ -31,4 +31,13 @@ export class BookmarksController {
   remove(@Param('id') id: string) {
     return this.bookmarksService.remove(+id);
   }
+
+  //get by userid
+  @Get('getByUserId/:id')
+  findByUser(@Param('id') id: number) {
+    return this.bookmarksService.findByUser(id);
+  }
+  
+
+
 }
