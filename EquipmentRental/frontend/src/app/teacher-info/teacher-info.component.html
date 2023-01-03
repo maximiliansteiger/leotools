@@ -1,0 +1,20 @@
+<body>
+    <app-main-nav></app-main-nav>
+    <div class="container">
+        <div class="teacherName">
+            <h3>Steiger Maximus</h3>
+        </div>
+        <div class="hr"></div>
+        <div class="content">
+            <form (ngSubmit)="updateTeacher()">
+                <label for="fromInput" id="fromLabel">Von: </label>
+                <input type="time" id="fromInput">
+                <label for="toInput" id="toLabel">Bis: </label>
+                <input type="time" id="toInput">
+                <label for="annotation" id="annotationLabel">Anmerkung: </label>
+                <textarea name="annotation" id="annotation" rows="3" cols="50" wrap="soft"> </textarea>
+                <button type="submit" id="updateButton">aktualisieren</button>
+            </form>
+        </div>
+    </div>
+</body>

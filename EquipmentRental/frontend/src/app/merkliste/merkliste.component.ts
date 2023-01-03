@@ -26,8 +26,17 @@ export class MerklisteComponent implements OnInit {
     });
 
     console.log(this.bookmarks);
-
   }
+
+  delete() {
+    alert("Delete works")
+  }
+
+  reserve() {
+    alert("Merkliste wurde reserviert")
+    document.body.getElementsByClassName("container")[0].innerHTML = ``
+  }
+
 
 
 
