@@ -10,13 +10,14 @@
 
 <body>
     <app-main-nav></app-main-nav>
+    <div class="wrapper1">
     <div class="wrapper">
         <div class="headline">
             <h1>Reservierungen</h1>
         </div>
-
-        <div class="content" *ngFor="let reservation of reservations">
-            <div class="box">
+        
+        <div class="content" *ngFor="let reservation of reservations" >
+            <div class="box" (click)="showNotes(reservation.id)">
                 <div class="image">
                     <img src="../../assets/img/Sony_6100.jpg">
                 </div>
@@ -42,7 +43,16 @@
             </div>
 
         </div>
+        
     </div>
+
+    <div class="notesBox">
+        <h3 class="notesHeadline">Notes</h3>
+        <div id="notes" *ngFor="let e of noteEquipment">
+            <p>{{e.id}}</p>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

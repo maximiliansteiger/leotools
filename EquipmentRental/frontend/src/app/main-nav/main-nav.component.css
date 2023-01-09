@@ -95,6 +95,8 @@ li:hover>button svg {
     transform: rotate(180deg)
 }
 
+
+
 .scale-0 {
     transform: scale(0)
 }
@@ -110,3 +112,16 @@ svg {
     height: 3vh;
     width: auto;
 }
+
+
+.grid-wrapper{
+    display: grid;
+    grid-template-columns: 17% 23% 20% 23% 17%; 
+    justify-content: center; 
+    
+}
+
+.grid-box{
+    place-self: center;
+} 
+
