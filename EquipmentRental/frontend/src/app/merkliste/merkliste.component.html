@@ -1,5 +1,61 @@
-<p>merkliste works!</p>
+<body>
+    <app-main-nav></app-main-nav>
+    <div class="container">
+        <div class="box">
+            <div class="image">
+                <img src="../../assets/img/Sony_6100.jpg">
+            </div>
+            <div class="title">
+                <h3>Steiger Kamera</h3>
+            </div>
+            <div class="status">
+                <h4>gemerkt</h4>
+            </div>
+            <div class="options">
+                <div class="group inline-block">
+                    <button class="outline-none focus:outline-none border bg-white rounded-sm flex items-center min-w-32">
+                        <span><img src="../../assets/img/threeDots.png"></span>
+                    </button>
+                    <ul class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+                    transition duration-150 ease-in-out origin-top min-w-32">
+                        <li [routerLink]="['/detail']" class="rounded-sm hover:bg-gray-100"><a>Bearbeiten</a></li>
+                        <li (click)="delete()" class="rounded-sm hover:bg-gray-100" class="deleteLi"><a>Entfernen</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="../../assets/img/Sony_6100.jpg">
+            </div>
+            <div class="title">
+                <h3>Kaarmera</h3>
+            </div>
+            <div class="status">
+                <h4>gemerkt</h4>
+            </div>
+            <div class="options">
+                <div class="group inline-block">
+                    <button class="outline-none focus:outline-none border bg-white rounded-sm flex items-center min-w-32">
+                        <span><img src="../../assets/img/threeDots.png"></span>
+                    </button>
+                    <ul class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+                    transition duration-150 ease-in-out origin-top min-w-32">
+                        <li [routerLink]="['/detail']" class="rounded-sm hover:bg-gray-100"><a>Bearbeiten</a></li>
+                        <li (click)="delete()" class="rounded-sm hover:bg-gray-100" class="deleteLi"><a>Entfernen</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-<div *ngFor="let bookmark of bookmarks">
+        <button class="reserveButton" (click)="reserve()">
+            reservieren
+        </button>
+    </div>
+</body>
+
+<!-- <div *ngFor="let bookmark of bookmarks">
     {{bookmark}}
-</div>
+</div> -->

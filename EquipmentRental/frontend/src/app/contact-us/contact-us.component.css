@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+body {
+    background-image: url("../../assets/img/background.png");
+    background-size: cover;
+    background-repeat: repeat;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    height: 80vh;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #839db6;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+a {
+    color: #839DB6;
+    font-weight: 700;
+}

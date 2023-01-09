@@ -138,8 +138,8 @@ export class HttpService {
   public getReservationById(id: number): Observable<any> {
     return this.http.get(this.baseUrl + "/reservations/get/" + id);
   }
-  public createReservation(reservation: any): Observable<any> {
-    return this.http.post(this.baseUrl + "/reservations/create", reservation);
+  public createReservation(createReservationDto: any): Observable<any> {
+    return this.http.post(this.baseUrl + "/reservations", createReservationDto);
   }
   public updateReservation(reservation: any): Observable<any> {
     return this.http.put(this.baseUrl + "/reservations/update/" + reservation.id, reservation);

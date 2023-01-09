@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Equipment } from '../models/equipment';
+import { Reservation } from '../models/reservation';
 import { RentalComponent } from '../rental/rental.component';
 import { DetailService } from '../services/detail.service';
 import { HttpService } from '../services/http.service';
@@ -59,9 +60,20 @@ export class DetailComponent implements OnInit {
     this.endDate = this.range.value.end;
     console.log(this.startDate);
     console.log(this.endDate);
-    this.router.navigate(['/equipment']);
+    // create a reservation object
+    // let createReservationDto:Reservation = {
+    //   id: 0,
+    //   userId: 1,
+    //   equipmentId: this.activeEquipment.id,
+    //   statusId: this.activeEquipment.status,
+    //   startDate: this.startDate!,
+    //   endDate: this.endDate!,
+    // }
+    // this.http.createReservation(createReservationDto).subscribe((data) => {
+    //   console.log(data);
+    // });
 
-    // this.http.createReservation()
+    this.router.navigate(['/equipment']);
   }
 
 

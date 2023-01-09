@@ -12,9 +12,9 @@ import { AboutComponent } from './about/about.component';
 import { FaqComponent } from './faq/faq.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MerklisteComponent } from './merkliste/merkliste.component';
-import { ContactTeacherComponent } from './contact-teacher/contact-teacher.component';
 import { EquipmentManagerComponent } from './equipment-manager/equipment-manager.component';
 import { TeacherOverviewReservationComponent } from './teacher-overview-reservation/teacher-overview-reservation.component';
+import { TeacherInfoComponent } from './teacher-info/teacher-info.component';
 
 const routes: Routes = [
   {
@@ -44,10 +44,6 @@ const routes: Routes = [
   {
     path: 'teacher',
     component: TeacherComponent
-  },
-  {
-    path: 'contact-teacher',
-    component: ContactTeacherComponent
   },
   {
     path: 'home',
@@ -80,6 +76,10 @@ const routes: Routes = [
   {
     path: 'teacher-overview',
     component: TeacherOverviewReservationComponent
+  },
+  {
+    path: 'teacher-info',
+    component: TeacherInfoComponent
   },
   {
     path: '**',
