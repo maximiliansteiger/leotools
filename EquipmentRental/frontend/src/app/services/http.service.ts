@@ -138,8 +138,8 @@ export class HttpService {
   public getReservationById(id: number): Observable<any> {
     return this.http.get(this.baseUrl + "/reservations/get/" + id);
   }
-  public createReservation(reservation: any): Observable<any> {
-    return this.http.post(this.baseUrl + "/reservations/create", reservation);
+  public createReservation(createReservationDto: any): Observable<any> {
+    return this.http.post(this.baseUrl + "/reservations", createReservationDto);
   }
   public updateReservation(reservation: any): Observable<any> {
     return this.http.put(this.baseUrl + "/reservations/update/" + reservation.id, reservation);
@@ -156,8 +156,8 @@ export class HttpService {
   public getBookmarkById(id: number): Observable<any> {
     return this.http.get(this.baseUrl + "/bookmarks/get/" + id);
   }
-  public createBookmark(bookmark: any): Observable<any> {
-    return this.http.post(this.baseUrl + "/bookmarks/create", bookmark);
+  public createBookmark(createBookmarkDto: any): Observable<any> {
+    return this.http.post(this.baseUrl + "/bookmarks", createBookmarkDto);
   }
   public updateBookmark(bookmark: any): Observable<any> {
     return this.http.put(this.baseUrl + "/bookmarks/update/" + bookmark.id, bookmark);
@@ -168,5 +168,6 @@ export class HttpService {
   public getBookmarkByUserId(id: number): Observable<any> {
     return this.http.get(this.baseUrl + "/bookmarks/getByUserId/" + id);
   }
+
 
 }

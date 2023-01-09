@@ -35,6 +35,11 @@ export class RentalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.http.getAllStatuses().subscribe((data) => {
+      console.log(data);
+    });
+
     this.equipmentTypesMap = new Map<String, number>();
     this.equipmentNamesMap = new Map<String, number>();
     this.equipmentNamesArray = [];
@@ -91,7 +96,16 @@ export class RentalComponent implements OnInit {
   editBookmark(equipmentName: any) {
     let eqtype = this.getEquipmentByName(equipmentName);
     if (eqtype != null) {
-      this.http.createBookmark(eqtype.id).subscribe((data) => {
+      this.http.getAllEquipments
+      let bookmark = {
+        equipmentId: eqtype.id,
+        userId: 1,
+      }
+      this.http.getAllUsers().subscribe((data) => {
+        console.log(data);
+      });
+
+      this.http.createBookmark(bookmark).subscribe((data) => {
         console.log(data);
         this.http.getAllBookmarks().subscribe((data) => {
           this.bookmarks = data;

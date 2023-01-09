@@ -17,14 +17,15 @@ export class MerklisteComponent implements OnInit {
   ngOnInit(): void {
     this.http.getBookmarkByUserId(1).subscribe((data: any) => {
       this.bookmarks = data;
+      console.log(this.bookmarks);
       for (let i = 0; i < this.bookmarks.length; i++) {
         this.http.getEquipmentById(+this.bookmarks[i].equipmentId).subscribe((data: any) => {
           this.equipments.push(data);
+          console.log(data);
+
         });
       }
     });
-
-    console.log(this.bookmarks);
   }
 
   delete() {

@@ -16,6 +16,7 @@ model user {
   password    String
   role        role          @relation(fields: [roleId], references: [id])
   reservation reservation[]
+  bookmarks   bookmarks[]
 
   @@index([roleId], map: "user_role_id_fkey")
 }
@@ -80,6 +81,7 @@ model bookmarks {
   equipmentId Int @map("equipment_id")
 
   equipment equipment @relation(fields: [equipmentId], references: [id])
+  user      user      @relation(fields: [userId], references: [id])
 
   @@index([userId], map: "userId")
   @@index([equipmentId], map: "equipmentId")

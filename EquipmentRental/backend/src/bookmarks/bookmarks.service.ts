@@ -8,11 +8,26 @@ const prisma = new PrismaClient();
 
 @Injectable()
 export class BookmarksService {
-  create(createBookmarkDto: CreateBookmarkDto) {
+  create(createBookmarkDto) {
+    const { userId, equipmentId } = createBookmarkDto;
+    console.log(userId, equipmentId);
+
     return prisma.bookmarks.create({
-      data: createBookmarkDto
-    });
+      data: {
+        user: {
+          connect: {
+            id: userId
+          }
+        },
+        equipment: {
+          connect: {
+            id: equipmentId
+          }
+        },
+      }
+    })
   }
+
 
   findAll() {
     return prisma.bookmarks.findMany();
@@ -21,7 +36,7 @@ export class BookmarksService {
   findOne(id: number) {
     return prisma.bookmarks.findUnique({
       where: {
-        id: id
+        id
       }
     });
   }
@@ -29,7 +44,7 @@ export class BookmarksService {
   update(id: number, updateBookmarkDto: UpdateBookmarkDto) {
     return prisma.bookmarks.update({
       where: {
-        id: id
+        id
       },
       data: updateBookmarkDto
     });

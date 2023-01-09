@@ -9,9 +9,8 @@ const prisma = new PrismaClient();
 export class ReservationService {
   create(createReservationDto: CreateReservationDto) {
     return prisma.reservation.create({
-      data:
-        createReservationDto
-    });;
+      data: createReservationDto
+    });
   }
 
   findAll() {

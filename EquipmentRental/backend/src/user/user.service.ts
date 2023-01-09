@@ -17,6 +17,7 @@ export class UserService {
     });
   }
 
+  
   findAll() {
     return prisma.user.findMany();
   }
@@ -93,12 +94,12 @@ export class UserService {
 
     var LdapStrategy = require('passport-ldapauth');
     var passport = require('passport');
-    
-      passport.use(new LdapStrategy({
-        server: {
-          url: 'ldap://localhost:389',
-        }
-      }));
+
+    passport.use(new LdapStrategy({
+      server: {
+        url: 'ldap://localhost:389',
+      }
+    }));
 
 
 

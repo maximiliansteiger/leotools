@@ -8,7 +8,7 @@ export class BookmarksController {
   constructor(private readonly bookmarksService: BookmarksService) { }
 
   @Post()
-  create(@Body() createBookmarkDto: CreateBookmarkDto) {
+  create(@Body() createBookmarkDto) {
     return this.bookmarksService.create(createBookmarkDto);
   }
 
@@ -37,7 +37,7 @@ export class BookmarksController {
   findByUser(@Param('id') id: number) {
     return this.bookmarksService.findByUser(id);
   }
-  
+
 
 
 }
