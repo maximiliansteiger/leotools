@@ -1,5 +1,21 @@
-<p>merkliste works!</p>
+<!DOCTYPE html>
+<html lang="en">
 
-<div *ngFor="let bookmark of bookmarks">
-    {{bookmark}}
-</div>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+
+
+<app-main-nav></app-main-nav>
+
+<body>
+
+    <div *ngFor="let equipment of equipments">
+        {{equipment.name}}
+    </div>
+</body>
+
+</html>

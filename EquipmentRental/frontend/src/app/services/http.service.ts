@@ -41,7 +41,7 @@ export class HttpService {
     return this.http.get(this.baseUrl + "/equipments/getAll");
   }
   public getEquipmentById(id: number): Observable<any> {
-    return this.http.get(this.baseUrl + "/equipments/get/" + id);
+    return this.http.get(this.baseUrl + "/equipments/" + id);
   }
   public getEquipmentByName(name: any): Observable<any> {
     return this.http.get(this.baseUrl + "/equipments/getByName/" + name);

@@ -9,7 +9,9 @@ const prisma = new PrismaClient();
 @Injectable()
 export class BookmarksService {
   create(createBookmarkDto: CreateBookmarkDto) {
-    return 'This action adds a new bookmark';
+    return prisma.bookmarks.create({
+      data: createBookmarkDto
+    });
   }
 
   findAll() {

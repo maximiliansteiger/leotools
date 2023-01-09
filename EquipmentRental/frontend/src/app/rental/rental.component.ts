@@ -139,37 +139,40 @@ export class RentalComponent implements OnInit {
           if (this.type.value?.[i] != undefined) {
             if (e.EquipmentType.name == this.type.value?.[i]) {
               typeFiltered.push(e);
-            }}}
-      });}
-      // BRAND FILTER
-      /*
-    if (this.brand.value?.[0] != undefined) {
-      this.equipments?.forEach(e => {
-        for (let i = 0; i < 4; i++) {
-          if (this.brand.value?.[i] != undefined) {
-            if (e.EquipmentType.brand == this.type.value?.[i]) {
-              brandFiltered.push(e);
-            }}}
-      });}
-      */
-     // DATE FILTER
-     /*
-     if (this.range.get('start')?.value != undefined && this.range.get('end')?.value) {
-      this.equipments?.forEach(e => {
-        for (let i = 0; i < 2; i++) {
-            if (e.EquipmentType.name == this.type.value?.[i]) {
-              dateFiltered.push(e);
-            }}
-      });}*/
-      console.log(this.equipmentTypes[0]);
-      console.log(this.equipments[0])
-      
+            }
+          }
+        }
+      });
+    }
+    // BRAND FILTER
+    /*
+  if (this.brand.value?.[0] != undefined) {
+    this.equipments?.forEach(e => {
+      for (let i = 0; i < 4; i++) {
+        if (this.brand.value?.[i] != undefined) {
+          if (e.EquipmentType.brand == this.type.value?.[i]) {
+            brandFiltered.push(e);
+          }}}
+    });}
+    */
+    // DATE FILTER
+    /*
+    if (this.range.get('start')?.value != undefined && this.range.get('end')?.value) {
+     this.equipments?.forEach(e => {
+       for (let i = 0; i < 2; i++) {
+           if (e.EquipmentType.name == this.type.value?.[i]) {
+             dateFiltered.push(e);
+           }}
+     });}*/
+    console.log(this.equipmentTypes[0]);
+    console.log(this.equipments[0])
 
-     if(typeFiltered.length !== 0){
+
+    if (typeFiltered.length !== 0) {
       return typeFiltered
-     } else {
-    return equipmentFiltered;
-     }
+    } else {
+      return equipmentFiltered;
+    }
 
   }
 
