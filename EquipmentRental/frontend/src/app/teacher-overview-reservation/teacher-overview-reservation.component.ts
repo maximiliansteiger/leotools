@@ -12,6 +12,7 @@ export class TeacherOverviewReservationComponent implements OnInit {
 
   reservations: Reservation[] = [];
   equipments!: Equipment[];
+  noteEquipment!: Equipment[];
   states!: any[];
 
 
@@ -58,6 +59,11 @@ export class TeacherOverviewReservationComponent implements OnInit {
 
   delete() {
     alert("Delete works")
+  }
+
+  showNotes(id: number) {
+    console.log("asd");
+    this.noteEquipment = this.equipments.filter(e => e.id = id);
   }
 
 }
