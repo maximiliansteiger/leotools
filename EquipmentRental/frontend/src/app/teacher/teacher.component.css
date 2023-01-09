@@ -4,42 +4,97 @@ body {
     background-repeat: repeat;
 }
 
-.wrapper {
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "rager engleitner" "baar huemer";
     width: 80vw;
-    height: auto;
+    height: 80vh;
     margin: 0 auto;
 }
 
+.rager {
+    grid-area: rager;
+}
+
+.engleitner {
+    grid-area: engleitner;
+}
+
+.baar {
+    grid-area: baar;
+}
+
+.huemer {
+    grid-area: huemer;
+}
+
 .teacher {
-    padding: 0 0 8vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "teacherName teacherName teacherName hr teacherContent teacherContent teacherContent teacherContent";
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    height: 75%;
+    width: 95%;
 }
 
 .teacherName {
+    grid-area: teacherName;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-size: 1.5em;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: #3b4752;
 }
 
-hr {
-    margin: 0 auto .5vh;
-    border: 1px solid #839db6;
-    width: 10vw;
+.hr {
+    grid-area: hr;
+    height: 80%;
+    border-left: 2px solid #839DB6;
+    display: flex;
+    align-self: center;
 }
 
 .teacherContent {
-    text-align: center;
+    grid-area: teacherContent;
+    width: 100%;
+    padding: 5%;
+    align-self: center;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #839db6;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.7em;
 }
 
 h3 {
     font-family: 'Poppins', sans-serif;
     color: #839db6;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
 p {
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
+    margin-bottom: 10%;
+}
+
+button {
+    background-color: #839DB6;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 10px;
 }

@@ -60,7 +60,8 @@ body{
   height: auto;
   object-fit: cover;
   display: flex;
-  margin-left: 5%;
+  margin-left: 13vw;
+  margin-top:2.5%;
 }
 
 

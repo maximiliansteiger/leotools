@@ -29,15 +29,14 @@ import { FaqComponent } from './faq/faq.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MerklisteComponent } from './merkliste/merkliste.component';
-import { ContactTeacherComponent } from './contact-teacher/contact-teacher.component';
 import { EquipmentManagerComponent } from './equipment-manager/equipment-manager.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatRadioModule} from "@angular/material/radio";
 
 import { CdkTableModule} from '@angular/cdk/table';
-import {DataSource} from '@angular/cdk/table';
 import { UploadComponent } from './upload/upload.component';
 import { TeacherOverviewReservationComponent } from './teacher-overview-reservation/teacher-overview-reservation.component';
+import { TeacherInfoComponent } from './teacher-info/teacher-info.component';
 
 @NgModule({
   declarations: [
@@ -57,10 +56,10 @@ import { TeacherOverviewReservationComponent } from './teacher-overview-reservat
     AboutComponent,
     ContactUsComponent,
     MerklisteComponent,
-    ContactTeacherComponent,
     EquipmentManagerComponent,
     UploadComponent,
     TeacherOverviewReservationComponent,
+    TeacherInfoComponent,
 
     ],
   imports: [

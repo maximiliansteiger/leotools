@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+body {
+    background-image: url("../../assets/img/background.png");
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "teacherName" "teacherName" "content1" "content1" "content1" "content1" "content1";
+    width: 60vw;
+    height: 60vh;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.teacherName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: teacherName;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #91aeca;
+}
+
+.teacherName h3 {
+    padding: 1vh 0;
+    border-bottom: 2px solid #91aeca;
+    width: 50%;
+}
+
+.content {
+    grid-area: content1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+.content form {
+    height: 100%;
+}
+
+.content form input {
+    display: block;
+    margin: 0 auto 10%;
+    text-align: center;
+}
+
+.content form textarea {
+    display: block;
+    margin: 0 auto 10%;
+    text-align: center;
+    font-size: 0.7em;
+    border: 2px solid #8ea9c2;
+    border-radius: 10px;
+}
+
+button {
+    font-weight: 600;
+    font-size: 1em;
+    background-color: #8ea9c2;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+}

@@ -17,6 +17,9 @@ export class RentalComponent implements OnInit {
   equipmentNamesMap!: Map<String, number>;
   equipmentNamesArray!: String[];
   equipmentTypes!: EquipmentType[];
+  bookmarks!: Equipment[];
+
+
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
@@ -46,15 +49,18 @@ export class RentalComponent implements OnInit {
       console.log(this.equipments);
 
       this.refreshFilter();
+    });
 
-
+    this.http.getAllBookmarks().subscribe((data) => {
+      this.bookmarks = data;
+      console.log(data);
     });
   }
 
-  getImageByEquipment(et: String) {
+  getImageByEquipment(equipmentType: String) {
     let imageURL = '../../assets/img/';
     let imageURL2 = '../../assets/img/Sony_6100.png';
-    switch (et) {
+    switch (equipmentType) {
       case 'Zoom H2n':
         imageURL += 'zoom.png';
         break;
@@ -79,6 +85,19 @@ export class RentalComponent implements OnInit {
     if (eqtype != null) {
       this.details.setEquipment(eqtype);
       this.router.navigate(['/detail']);
+    }
+  }
+
+  editBookmark(equipmentName: any) {
+    let eqtype = this.getEquipmentByName(equipmentName);
+    if (eqtype != null) {
+      this.http.createBookmark(eqtype.id).subscribe((data) => {
+        console.log(data);
+        this.http.getAllBookmarks().subscribe((data) => {
+          this.bookmarks = data;
+          console.log(data);
+        });
+      });
     }
   }
 
