@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Reservation } from '../models/reservation';
 import { Equipment } from '../models/equipment';
 import { HttpService } from '../services/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -16,7 +17,7 @@ export class ReservationComponent implements OnInit {
   states!: any[];
 
 
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -60,5 +61,13 @@ export class ReservationComponent implements OnInit {
   delete() {
     alert("Delete works")
   }
+
+  edit(reservation: Reservation) {
+    this.http.getEquipmentById(reservation.equipmentId).subscribe(
+      equipment =>
+        this.router.navigate(['detail'], { state: { equipment } })
+    )
+  }
+
 
 }

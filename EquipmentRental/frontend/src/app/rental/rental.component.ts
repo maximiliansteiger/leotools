@@ -17,7 +17,7 @@ export class RentalComponent implements OnInit {
   equipmentNamesMap!: Map<String, number>;
   equipmentNamesArray!: String[];
   equipmentTypes!: EquipmentType[];
-  bookmarks!: Equipment[];
+  bookmarks!: any[];
 
 
   range = new FormGroup({
@@ -207,6 +207,11 @@ export class RentalComponent implements OnInit {
       return equipmentFiltered;
     }
 
+  }
+
+  checkIfInBookmark(equipmentName: any) {
+    let equipment = this.getEquipmentByName(equipmentName) as Equipment;
+    return this.bookmarks.map(bm => bm.equipmentId).includes(equipment.id)
   }
 
 }

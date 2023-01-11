@@ -11,9 +11,9 @@
 
 <app-main-nav></app-main-nav>
 
-<body>  
+<body>
   <nav>
-    <mat-form-field  >
+    <mat-form-field>
       <mat-label>Typ</mat-label>
       <mat-select (selectionChange)="refreshFilter()" [formControl]="type" multiple>
         <mat-option *ngFor="let type of equipmentTypes" [value]="type.name">{{type.name}}</mat-option>
@@ -25,36 +25,46 @@
         <mat-option *ngFor="let brand of brandFilter" [value]="brand">{{brand}}</mat-option>
       </mat-select>
     </mat-form-field>
-  
-      <mat-form-field  class="filterField">
-        <mat-label>Enter a date range</mat-label>
-        <mat-date-range-input  [formGroup]="range"[rangePicker]="picker">
-          <input  matStartDate formControlName="start" placeholder="Start date">
-          <input (dateChange)="refreshFilter()" matEndDate formControlName="end" placeholder="End date">
-        </mat-date-range-input>
-        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-      </mat-form-field>
+
+    <mat-form-field class="filterField">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input (dateChange)="refreshFilter()" matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
   </nav>
 
-    <div class="equipments">
-      <div (click)="redirectDetail(eq)" class="equipment" [ngClass]="{'allTaken':!equipmentNamesMap.get(eq)}"
-        *ngFor="let eq of equipmentNamesArray">
+  <div class="equipments">
+    <div *ngFor="let eq of equipmentNamesArray">
+
+      <!-- merkliste -->
+
+      <img class="bookmark" src="../../assets/img/bookmark.png" *ngIf="!checkIfInBookmark(eq)"
+        (click)="editBookmark(eq)" alt="bookmark">
+      <img class="bookmark" src="../../assets/img/bookmark_yellow_new.png" *ngIf="checkIfInBookmark(eq)"
+        (click)="editBookmark(eq)" alt="bookmark">
+
+
+
+      <div (click)="redirectDetail(eq)" class="equipment" [ngClass]="{'allTaken':!equipmentNamesMap.get(eq)}">
         <div class="img">
-          <img class="bookmark" src="../../assets/img/bookmark.png" (click)="editBookmark(eq)" alt="bookmark">
+
           <img class="eqImg" [src]="getImageByEquipment(eq[0])">
         </div>
         <div class="title">
-            <h3 class="eqName">{{eq}}</h3>
-              <h5 [ngClass]="{'available':!equipmentNamesMap.get(eq)}" style="font-size:0.75em;">
-                {{equipmentNamesMap.get(eq) ? "verfügbar: " + equipmentNamesMap.get(eq) :"nicht verfügbar"}}
-              </h5>
+          <h3 class="eqName">{{eq}}</h3>
+          <h5 [ngClass]="{'available':!equipmentNamesMap.get(eq)}" style="font-size:0.75em;">
+            {{equipmentNamesMap.get(eq) ? "verfügbar: " + equipmentNamesMap.get(eq) :"nicht verfügbar"}}
+          </h5>
         </div>
-        
+
       </div>
+    </div>
   </div>
-  
 </body>
 
 </html>
