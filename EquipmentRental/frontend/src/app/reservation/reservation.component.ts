@@ -36,8 +36,6 @@ export class ReservationComponent implements OnInit {
       console.log(this.equipments);
     });
   }
-
-
   equipmentNameOfReservation(equipmentId: number): string {
     return this.equipments.find(e => e.id == equipmentId)?.name || '';
   }

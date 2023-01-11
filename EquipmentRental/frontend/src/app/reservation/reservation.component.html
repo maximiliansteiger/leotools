@@ -15,6 +15,11 @@
             <h1>Deine Reservierungen</h1>
         </div>
 
+        <div *ngIf="this.reservations.length == 0">
+            <h1>noch keine Reservierungen erstellt</h1>
+            <!-- //TODO center -->
+        </div>
+
         <div class="content" *ngFor="let reservation of reservations">
             <div class="box">
                 <div class="image">

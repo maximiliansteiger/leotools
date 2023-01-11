@@ -163,7 +163,8 @@ export class HttpService {
     return this.http.put(this.baseUrl + "/bookmarks/update/" + bookmark.id, bookmark);
   }
   public deleteBookmark(bookmark: any): Observable<any> {
-    return this.http.delete(this.baseUrl + "/bookmarks/delete/" + bookmark.id);
+    let id = bookmark.id;
+    return this.http.delete(this.baseUrl + "/bookmarks/" + id);
   }
   public getBookmarkByUserId(id: number): Observable<any> {
     return this.http.get(this.baseUrl + "/bookmarks/getByUserId/" + id);

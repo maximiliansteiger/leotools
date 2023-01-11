@@ -20,38 +20,23 @@ export class DetailComponent implements OnInit {
   quantity = 1;
 
   constructor(private http: HttpService, private router: Router) {
-    console.log("data:::");
-
-    console.log(this.router.getCurrentNavigation()?.extras);
-
     this.activeEquipment = this.router.getCurrentNavigation()!.extras.state!["equipment"] as Equipment
-    console.log(this.activeEquipment);
-
-
-
   }
-
-
 
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
   ngOnInit(): void {
-    // this.activeEquipment = this.details.equipment;
     this.availableEquipment = 0;
-
     this.http.getAllEquipments().subscribe((data) => {
       this.equipments = data;
       console.log(this.equipments);
       this.getAvailable(this.activeEquipment.name);
     });
-
-
-
   }
-  setDates() {
 
+  setDates() {
   }
 
   getAvailable(name: any) {
@@ -66,11 +51,6 @@ export class DetailComponent implements OnInit {
   rent() {
     this.startDate = this.range.value.start;
     this.endDate = this.range.value.end;
-    console.log(this.startDate);
-    console.log(this.endDate);
-    // create a reservation object
-    console.log(this.activeEquipment);
-
     let createReservationDto: any = {
       userId: 1,
       equipmentId: this.activeEquipment.id,
@@ -82,7 +62,7 @@ export class DetailComponent implements OnInit {
       console.log(data);
     });
 
-    this.router.navigate(['/equipment']);
+    this.router.navigate(['equipment']);
   }
 
   getImageByEquipment(et: String) {

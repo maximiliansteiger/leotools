@@ -1,6 +1,12 @@
 <body>
     <app-main-nav></app-main-nav>
     <div class="container">
+
+        <div *ngIf="this.equipments.length == 0">
+            <h1>noch kein Equipment vermerkt</h1>
+            <!-- TODO center -->
+        </div>
+
         <div class="box" *ngFor="let equipment of equipments">
             <div class="image">
                 <img src="../../assets/img/Sony_6100.jpg">

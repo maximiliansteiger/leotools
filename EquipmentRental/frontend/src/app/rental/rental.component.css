@@ -1,11 +1,13 @@
-*{
+* {
   scroll-behavior: smooth;
 }
-body{
+
+body {
   height: fit-content;
 }
+
 .equipment {
-  width:15vw;
+  width: 15vw;
   height: 35vh;
   text-align: center;
   font-family: 'Poppins', sans-serif;
@@ -14,31 +16,35 @@ body{
   text-align: left;
   position: relative;
 }
-.title{
+
+.title {
   position: absolute;
-  bottom:0;
-  padding:20px;
+  bottom: 0;
+  padding: 20px;
 }
 
-.equipment:hover{
+.equipment:hover {
   cursor: pointer;
 }
-.equipment h3{
+
+.equipment h3 {
   font-size: 2vh;
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
   color: black;
 }
+
 .equipments {
-  width:85%;
+  width: 85%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 4vh;
   margin: 20px;
   margin-left: 7.5%;
   margin-right: 7.5%;
-  margin-top:5%;
+  margin-top: 5%;
 }
+
 .eqImg {
   width: 8vw;
   height: auto;
@@ -48,20 +54,27 @@ body{
   /* outline: 5px solid #ccc; */
 
 }
+
 .eqName {
   font-size: 1.5em;
   font-weight: 600;
-  padding-top:10px;
+  padding-top: 10px;
 }
-.bookmark{
-  position:absolute;
+
+.bookmark {
+  position: absolute;
   width: 1.5vw;
-  float:right;
+  float: right;
   height: auto;
   object-fit: cover;
   display: flex;
   margin-left: 13vw;
-  margin-top:2.5%;
+  margin-top: 2.5%;
+  z-index: 1000;
+}
+
+.bookmark:hover {
+  cursor: pointer;
 }
 
 
@@ -75,32 +88,36 @@ body{
   -o-user-select: none;
   user-select: none;
 }
+
 .allTaken img {
   filter: grayscale(100%);
 }
 
 a {
   transition: 0.3s;
-  cursor:pointer;
+  cursor: pointer;
 }
+
 a:hover {
   color: #242424;
 }
-.filter{
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    max-width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-right: 5%;
+
+.filter {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 90%;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-nav{
+nav {
   margin-left: 7.5%;
   margin-top: 2%;
 }
-.filterField{
+
+.filterField {
   margin-left: 3%;
 }

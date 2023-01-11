@@ -94,24 +94,33 @@ export class RentalComponent implements OnInit {
 
 
   editBookmark(equipmentName: any) {
-    let eqtype = this.getEquipmentByName(equipmentName);
-    if (eqtype != null) {
-      this.http.getAllEquipments
-      let bookmark = {
-        equipmentId: eqtype.id,
-        userId: 1,
-      }
-      this.http.getAllUsers().subscribe((data) => {
-        console.log(data);
-      });
+    let equipment = this.getEquipmentByName(equipmentName);
+    if (!this.checkIfInBookmark(equipmentName)) {
 
-      this.http.createBookmark(bookmark).subscribe((data) => {
-        console.log(data);
-        this.http.getAllBookmarks().subscribe((data) => {
-          this.bookmarks = data;
+      if (equipment != null) {
+
+        this.http.getAllEquipments
+        let bookmark = {
+          equipmentId: equipment.id,
+          userId: 1,
+        }
+
+        this.http.getAllUsers().subscribe((data) => {
           console.log(data);
         });
-      });
+        this.http.createBookmark(bookmark).subscribe((data) => {
+          console.log(data);
+          this.http.getAllBookmarks().subscribe((data) => {
+            this.bookmarks = data;
+            console.log(data);
+          });
+        });
+      }
+    } else {
+      let eq = this.bookmarks.filter(element => element.equipmentId == equipment!.id)[0]
+      console.log(this.bookmarks);
+      this.bookmarks = this.bookmarks.filter(element => element.equipmentId != equipment!.id)
+      this.http.deleteBookmark(eq).subscribe()
     }
   }
 
@@ -150,9 +159,9 @@ export class RentalComponent implements OnInit {
   }
 
   refreshFilter() {
-    console.log("oho");
+    // console.log("oho");
     let equipmentFiltered = this.filterEquipment();
-    console.log(equipmentFiltered);
+    // console.log(equipmentFiltered);
     this.setEquipmentNamesMap(equipmentFiltered);
 
   }
@@ -197,8 +206,8 @@ export class RentalComponent implements OnInit {
              dateFiltered.push(e);
            }}
      });}*/
-    console.log(this.equipmentTypes[0]);
-    console.log(this.equipments[0])
+    // console.log(this.equipmentTypes[0]);
+    // console.log(this.equipments[0])
 
 
     if (typeFiltered.length !== 0) {
@@ -209,6 +218,13 @@ export class RentalComponent implements OnInit {
 
   }
 
+  /**
+   * Checks if 
+   * @param equipmentName name of the selected equipment
+   * @returns 
+   *  
+   * 
+   */
   checkIfInBookmark(equipmentName: any) {
     let equipment = this.getEquipmentByName(equipmentName) as Equipment;
     return this.bookmarks.map(bm => bm.equipmentId).includes(equipment.id)
