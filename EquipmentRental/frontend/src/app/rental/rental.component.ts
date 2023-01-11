@@ -36,6 +36,11 @@ export class RentalComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.http.getAllBookmarks().subscribe((data) => {
+      this.bookmarks = data;
+      console.log(data);
+    });
+
     this.http.getAllStatuses().subscribe((data) => {
       console.log(data);
     });
@@ -56,10 +61,7 @@ export class RentalComponent implements OnInit {
       this.refreshFilter();
     });
 
-    this.http.getAllBookmarks().subscribe((data) => {
-      this.bookmarks = data;
-      console.log(data);
-    });
+
   }
 
   getImageByEquipment(equipmentType: String) {
