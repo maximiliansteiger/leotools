@@ -12,9 +12,10 @@
 </head>
 
 <body>
+
     <router-outlet></router-outlet>
     <!--TODO Footer beim login nicht anzeigen -->
-    <div class="footerThing">
+    <div class="footerThing" *ngIf="!isLogin()">
         <app-footer></app-footer>
     </div>
 </body>
