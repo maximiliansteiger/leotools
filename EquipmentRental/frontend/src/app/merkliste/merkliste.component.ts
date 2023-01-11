@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Equipment } from '../models/equipment';
 import { HttpService } from '../services/http.service';
 
@@ -12,7 +13,7 @@ export class MerklisteComponent implements OnInit {
   bookmarks: any;
   equipments: any[] = [];
 
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private router: Router) { }
 
   ngOnInit(): void {
     this.http.getBookmarkByUserId(1).subscribe((data: any) => {
@@ -32,9 +33,9 @@ export class MerklisteComponent implements OnInit {
     alert("Delete works")
   }
 
-  reserve() {
-    alert("Merkliste wurde reserviert")
-    document.body.getElementsByClassName("container")[0].innerHTML = ``
+  reserve(equipment: any) {
+    this.router.navigate(['detail'], { state: { equipment } })
+
   }
 
 

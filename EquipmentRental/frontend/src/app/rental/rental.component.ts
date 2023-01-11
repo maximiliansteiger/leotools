@@ -86,12 +86,12 @@ export class RentalComponent implements OnInit {
   }
 
   redirectDetail(equipmentName: any) {
-    let eqtype = this.getEquipmentByName(equipmentName);
-    if (eqtype != null) {
-      this.details.setEquipment(eqtype);
-      this.router.navigate(['/detail']);
+    let equipment = this.getEquipmentByName(equipmentName);
+    if (equipment != null) {
+      this.router.navigate(['detail'], { state: { equipment } })
     }
   }
+
 
   editBookmark(equipmentName: any) {
     let eqtype = this.getEquipmentByName(equipmentName);

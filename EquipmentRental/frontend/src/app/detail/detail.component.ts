@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Equipment } from '../models/equipment';
-import { Reservation } from '../models/reservation';
-import { RentalComponent } from '../rental/rental.component';
 import { DetailService } from '../services/detail.service';
 import { HttpService } from '../services/http.service';
 
@@ -14,8 +12,6 @@ import { HttpService } from '../services/http.service';
 })
 export class DetailComponent implements OnInit {
 
-  constructor(private details: DetailService, private http: HttpService, private router: Router) { }
-
   activeEquipment!: Equipment
   equipments!: Equipment[];
   availableEquipment!: number;
@@ -23,12 +19,26 @@ export class DetailComponent implements OnInit {
   endDate!: Date | null | undefined;
   quantity = 1;
 
+  constructor(private http: HttpService, private router: Router) {
+    console.log("data:::");
+
+    console.log(this.router.getCurrentNavigation()?.extras);
+
+    this.activeEquipment = this.router.getCurrentNavigation()!.extras.state!["equipment"] as Equipment
+    console.log(this.activeEquipment);
+
+
+
+  }
+
+
+
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
     end: new FormControl<Date | null>(null),
   });
   ngOnInit(): void {
-    this.activeEquipment = this.details.equipment;
+    // this.activeEquipment = this.details.equipment;
     this.availableEquipment = 0;
 
     this.http.getAllEquipments().subscribe((data) => {
@@ -36,6 +46,8 @@ export class DetailComponent implements OnInit {
       console.log(this.equipments);
       this.getAvailable(this.activeEquipment.name);
     });
+
+
 
   }
   setDates() {
