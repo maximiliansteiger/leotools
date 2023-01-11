@@ -21,7 +21,7 @@ export class DetailComponent implements OnInit {
   availableEquipment!: number;
   startDate!: Date | null | undefined;
   endDate!: Date | null | undefined;
-  quantity=1;
+  quantity = 1;
 
   range = new FormGroup({
     start: new FormControl<Date | null>(null),
@@ -52,30 +52,26 @@ export class DetailComponent implements OnInit {
   }
 
   rent() {
-
-    // let amount = 
-    // let startDate =
-    //     // let endDate =
     this.startDate = this.range.value.start;
     this.endDate = this.range.value.end;
     console.log(this.startDate);
     console.log(this.endDate);
     // create a reservation object
-    // let createReservationDto:Reservation = {
-    //   id: 0,
-    //   userId: 1,
-    //   equipmentId: this.activeEquipment.id,
-    //   statusId: this.activeEquipment.status,
-    //   startDate: this.startDate!,
-    //   endDate: this.endDate!,
-    // }
-    // this.http.createReservation(createReservationDto).subscribe((data) => {
-    //   console.log(data);
-    // });
+    console.log(this.activeEquipment);
+
+    let createReservationDto: any = {
+      userId: 1,
+      equipmentId: this.activeEquipment.id,
+      statusId: 1,//1 = reserviert
+      startDate: this.startDate!,
+      endDate: this.endDate!,
+    }
+    this.http.createReservation(createReservationDto).subscribe((data) => {
+      console.log(data);
+    });
 
     this.router.navigate(['/equipment']);
   }
-
 
   getImageByEquipment(et: String) {
     let imageURL = "../../assets/img/";
@@ -100,7 +96,4 @@ export class DetailComponent implements OnInit {
     }
     return imageURL2;
   }
-
-
-
 }
